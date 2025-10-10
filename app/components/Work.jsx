@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { projectData, projectImages } from "../../assets/assets";
+import { useRouter } from "next/navigation";
 
 const ProjectCard = ({ project, onClick }) => {
   const firstImage = projectImages[project.id]?.[0] || null;
@@ -63,8 +64,10 @@ const ProjectCard = ({ project, onClick }) => {
   );
 };
 
+
 const ProjectModal = ({ project, images, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const router = useRouter();
   const prevImage = () =>
     setCurrentImageIndex((prev) =>
       prev === 0 ? images.length - 1 : prev - 1
@@ -202,7 +205,12 @@ const Work = () => {
                 </div>
               </div>
               <div className="flex justify-center mb-4 sm:mb-6 cursor-pointer">
-                <button className="px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all duration-300 text-sm sm:text-base md:text-lg cursor-pointer">
+                <button
+                  onClick={() => {
+                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all duration-300 text-sm sm:text-base md:text-lg cursor-pointer"
+                >
                   Let’s Connect
                 </button>
               </div>

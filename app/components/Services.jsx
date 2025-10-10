@@ -3,8 +3,10 @@
 import React from "react";
 import { servicesData } from "../../assets/assets";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Services() {
+  const router = useRouter();
   return (
     <section id="services" className="w-full py-10 sm:py-12 md:py-16 mb-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-12">
@@ -36,7 +38,12 @@ export default function Services() {
                 {description}
               </p>
               <div className="flex justify-center">
-                <button className="flex items-center gap-1 text-indigo-600 hover:text-indigo-800 text-[10px] sm:text-xs md:text-sm font-medium transition-colors">
+                <button
+                  onClick={() => {
+                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="flex cursor-pointer items-center gap-1 text-indigo-600 hover:text-indigo-800 text-[10px] sm:text-xs md:text-sm font-medium transition-colors"
+                >
                   Let’s Build It <ArrowRight size={12} />
                 </button>
               </div>
