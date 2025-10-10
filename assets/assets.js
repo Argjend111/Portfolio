@@ -302,7 +302,7 @@ export const skillData = [
   {
     name: "Java",
     type: "Backend",
-    experience: "3+ years",
+    experience: "1 year",
     level: "Basic",
     description: "Used for OOP and algorithmic problem-solving during academic projects.",
     icon: Cpu

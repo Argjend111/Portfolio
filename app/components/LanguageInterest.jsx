@@ -22,16 +22,16 @@ const colors = [
 
 export default function LanguageInterest() {
   return (
-    <section id="languages" className="w-full py-14 scroll-mt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-8 lg:px-12">
+    <section id="languages" className="w-full py-14 sm:py-16 md:py-20 scroll-mt-20">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6 md:px-8 lg:px-12">
         <div className="text-center max-w-2xl mx-auto">
-          <h4 className="text-sm sm:text-base text-indigo-600 font-semibold font-Ovo">
+          <h4 className="text-xs sm:text-sm md:text-base text-indigo-600 font-semibold font-Ovo">
             Learning & Exploring
           </h4>
-          <h2 className="text-3xl sm:text-4xl font-bold font-Ovo mt-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold font-Ovo mt-2">
             Languages I’m Interested In
           </h2>
-          <p className="text-gray-600 font-Ovo mt-4 text-sm sm:text-base leading-relaxed">
+          <p className="text-gray-600 font-Ovo mt-3 sm:mt-4 text-xs sm:text-sm md:text-base leading-relaxed">
             I’m expanding my skills into AI, system programming, and Android development.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function LanguageInterest() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12"
+          className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-10 sm:mt-12"
         >
           {languageInterest.map(({ name, reason, icon: Icon }, index) => {
             const color = colors[index % colors.length];
@@ -51,16 +51,20 @@ export default function LanguageInterest() {
                 variants={itemVariants}
                 whileHover={{
                   y: -6,
-                  scale: 1.02,
+                  scale: 1.03,
                   transition: { duration: 0.25 },
                 }}
-                className={`rounded-xl border shadow-sm hover:shadow-md px-6 py-8 text-center transition-all duration-300 ${color}`}
+                className={`rounded-2xl border shadow-sm hover:shadow-md px-4 sm:px-6 md:px-8 py-6 sm:py-8 md:py-10 text-center transition-all duration-300 ${color}`}
               >
-                <div className="flex items-center justify-center w-12 h-12 mx-auto mb-4 bg-white rounded-full shadow-inner text-indigo-600">
-                  <Icon size={22} />
+                <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mx-auto mb-3 sm:mb-4 bg-white rounded-full shadow-inner text-indigo-600">
+                  <Icon size={20} className="sm:size-22 md:size-24" />
                 </div>
-                <h3 className="text-base font-semibold text-gray-800 mb-1">{name}</h3>
-                <p className="text-gray-600 text-xs leading-snug">{reason}</p>
+                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-800 mb-1">
+                  {name}
+                </h3>
+                <p className="text-gray-600 text-[10px] sm:text-xs md:text-sm leading-snug max-w-xs mx-auto">
+                  {reason}
+                </p>
               </motion.div>
             );
           })}
