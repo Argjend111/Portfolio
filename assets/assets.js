@@ -487,23 +487,22 @@ export const projectData = [
     period: "10/2025 – Present", 
     description: "Built a responsive and animated personal portfolio using Next.js, Tailwind CSS, and Framer Motion. Designed to showcase projects and skills with smooth page transitions, dynamic components, and optimized SEO for performance. Deployed via Vercel with GitHub integration.",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com/argjendbytyci/portfolio"
+    github: "https://github.com/Argjend111/Portfolio"
   },
   { 
     id: 2, 
     title: "School Management System", 
     period: "11/2025 – Present", 
     description: "Developing a full-stack school management platform using Next.js, TypeScript, Prisma, PostgreSQL, Clerk, and Tailwind CSS. The system manages students, classes, and teachers with secure authentication, dynamic dashboards, and real-time updates.",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Clerk", "Tailwind CSS"],
-    github: "https://github.com/argjendbytyci/school-management-system"
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Clerk", "Tailwind CSS"]
   },
   { 
     id: 3, 
     title: "AI Real-Time Healthcare Assistant", 
     period: "09/2025 – 10/2025", 
-    description: "Built a real-time AI medical voice agent using Next.js and AssemblyAI for symptom analysis. Leveraged Neon Database for storage, deployed on Vercel, and integrated version control with GitHub. The app enables users to communicate symptoms and receive instant AI-driven health insights.",
+    description: "Built a real-time AI medical voice agent using Next.js and AssemblyAI for symptom analysis. Leveraged Neon Database for storage, deployed on Vercel. The app enables users to communicate symptoms and receive instant AI-driven health insights.",
     tags: ["Next.js", "AssemblyAI", "Neon DB", "Vercel"],
-    github: "https://github.com/argjendbytyci/ai-healthcare-assistant"
+    github: "https://github.com/Argjend111/ai-health-mate"
   },
   { 
     id: 4, 
@@ -511,7 +510,7 @@ export const projectData = [
     period: "07/2025 – 08/2025", 
     description: "Developed a car rental platform using Next.js 13, React, TypeScript, GraphQL, HyGraph, and Tailwind CSS. Integrated dynamic APIs for booking, car listings, and payment flows. Project managed via GitHub and deployed to Vercel.",
     tags: ["Next.js", "React", "TypeScript", "GraphQL", "HyGraph", "Tailwind CSS"],
-    github: "https://github.com/argjendbytyci/rent-a-car"
+    github:"https://github.com/Argjend111/car-rental"
   },
   { 
     id: 5, 
@@ -519,31 +518,28 @@ export const projectData = [
     period: "03/2025 – 04/2025", 
     description: "Project management app built using Laravel 11, React, Inertia, and Tailwind CSS. Used internally by teams to manage tasks, track progress, and assign members. Provides real-time synchronization and user-friendly UI for productivity tracking.",
     tags: ["Laravel 11", "React", "Inertia", "Tailwind CSS"],
-    github: "https://github.com/argjendbytyci/project-management"
+    github: "https://github.com/Argjend111/project-management"
   },
   { 
     id: 6, 
     title: "Pizza Ordering Windows App", 
     period: "02/2025 – 03/2025", 
     description: "Developed a .NET (C#) and SQLite desktop app for managing pizza orders, billing, and sales reporting. Used daily by two pizzerias in Germany. Includes features like order tracking, receipt generation, and analytics.",
-    tags: [".NET (C#)", "SQLite", "Windows Forms"],
-    github: "https://github.com/argjendbytyci/pizza-ordering-app"
+    tags: [".NET (C#)", "SQLite", "Windows Forms"]
   },
   { 
     id: 7, 
     title: "AI-Powered PDF Chat Platform", 
     period: "01/2025 – 02/2025", 
     description: "Built an AI-driven Q&A app using Next.js, LangChain, and OpenAI API to chat with PDFs. Integrated Stripe for subscription payments, Firebase for authentication, and deployed on Vercel. Users can upload PDFs and receive intelligent contextual responses.",
-    tags: ["Next.js", "LangChain", "OpenAI", "Stripe", "Firebase"],
-    github: "https://github.com/argjendbytyci/ai-pdf-chat"
+    tags: ["Next.js", "LangChain", "OpenAI", "Stripe", "Firebase"]
   },
   { 
     id: 8, 
     title: "Market Points Web App", 
     period: "11/2024 – 01/2025", 
     description: "Built a PHP/MySQL rewards platform where users earn and redeem points for cash or gifts. Integrated WordPress for content management, with a simple admin panel for tracking users and transactions.",
-    tags: ["PHP", "MySQL", "WordPress"],
-    github: "https://github.com/argjendbytyci/market-points"
+    tags: ["PHP", "MySQL", "WordPress"]
   },
   { 
     id: 9, 
@@ -551,22 +547,21 @@ export const projectData = [
     period: "08/2024 – 09/2025", 
     description: "Developed a dynamic dashboard and form generator using PHP, HTML, CSS, and JavaScript. The app allows admin users to create new dashboards, authentication systems, and custom user management modules with ease.",
     tags: ["PHP", "HTML", "CSS", "JavaScript"],
-    github: "https://github.com/argjendbytyci/dashboard-generator"
+    github: "https://github.com/Argjend111/Admin-db"
   },
   { 
     id: 10, 
     title: "Full-Stack E-commerce Admin Panel", 
     period: "06/2024 – 07/2024", 
     description: "Created a complete e-commerce platform with an admin dashboard using PHP and MySQLi. Features include authentication, product and category management, order tracking, and sales analytics.",
-    tags: ["PHP", "MySQLi", "HTML", "CSS", "JavaScript"],
-    github: "https://github.com/argjendbytyci/ecommerce-admin"
+    tags: ["PHP", "MySQLi", "HTML", "CSS", "JavaScript"]
   },
   { 
     id: 11, 
     title: "Python-Based Excel Data Forecasting", 
     period: "01/2023 – 05/2023", 
     description: "Developed a Python solution to analyze and predict weather patterns using SARIMA, ARIMA, and NeuralProphet models. Integrated Excel for visualization and reporting, leveraging Pandas, NumPy, and Keras for machine learning and time-series forecasting.",
-    tags: ["Python", "Pandas", "NumPy", "Machine Learning", "SARIMA", "ARIMA", "NeuralProphet", "Keras"],
+    tags: ["Python", "Pandas", "NumPy", "Machine Learning", "SARIMA", "ARIMA", "NeuralProphet", "Keras"]
   },
   {
     id: 12,
@@ -574,7 +569,23 @@ export const projectData = [
     period: "07/2024 – 08/2025",
     description: "Developed a full-stack app using Vue.js frontend and Laravel 11 backend. Implemented authentication with tokens, protected routes, image uploads, and CRUD APIs. Used Pinia for state management and Tailwind CSS for UI. Deployed both client and server apps.",
     tags: ["Vue.js", "Laravel 11", "Tailwind CSS", "Pinia", "API", "Authentication"],
-    github: "https://github.com/argjendbytyci/vue-laravel-fullstack"
+    github: "https://github.com/Argjend111/Laravel_vue"
+  },
+  { 
+    id: 13, 
+    title: "Restaurant Management App", 
+    period: "02/2025 – 03/2025", 
+    description: "Windows Forms C# app for managing restaurant orders, billing, and reporting, used daily by multiple restaurants.", 
+    tags: ["C#", "Windows Forms", "SQLite"],
+    github: "https://github.com/Argjend111/Restaurant"
+  },
+  { 
+    id: 14, 
+    title: "Playback Model App", 
+    period: "06/2024 – 07/2024", 
+    description: "App implementing playback models for media management and interaction. Built with PHP, JavaScript, and MySQL.", 
+    tags: ["PHP", "JavaScript", "MySQL"],
+    github: "https://github.com/Argjend111/Modeli-Playback"
   }
 ];
 
@@ -620,15 +631,7 @@ export const educationData = [
     institution: "Gymnasium “Jeta e Re”, Suharekë",
     startDate: new Date(2017, 7, 1),
     endDate: new Date(2020, 7, 31),
-  },
-  {
-    title: "Primary School",
-    institution: "Elementary School, Suharekë",
-    startDate: new Date(2009, 8, 1),
-    endDate: new Date(2017, 5, 30),
-    description:
-      "During primary school, I was selected as one of the best students.",
-  },
+  }
 ];
 
 export const experienceData = [
