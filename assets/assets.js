@@ -617,7 +617,17 @@ export const educationData = [
     institution: "Gymnasium “Jeta e Re”, Suharekë",
     startDate: new Date(2017, 7, 1),
     endDate: new Date(2020, 7, 31),
-  }
+  },
+    {
+    company: "Personal Experience",
+    role: "Tech Helper (Age 11)",
+    type: "Childhood - Suharekë, Kosovo",
+    startDate: new Date(2013, 8, 1),
+    endDate: new Date(2017, 5, 30),
+    details: [
+      "At age 11, assisted my dad with his local internet distribution business.",
+    ]
+    }
 ];
 
 export const experienceData = [
@@ -660,17 +670,8 @@ export const experienceData = [
     details: [
       "Developed responsive web applications with Next.js, PHP, MySQLi, and JavaScript. Handled projects using Jira and GitHub.",
     ],
-  },
-  {
-    company: "Personal Experience",
-    role: "Tech Helper (Age 11)",
-    type: "Childhood - Suharekë, Kosovo",
-    startDate: new Date(2013, 8, 1),
-    endDate: new Date(2017, 5, 30),
-    details: [
-      "At age 11, assisted my dad with his local internet distribution business.",
-    ],
-  },
+  }
+  
 ];
 
 export const certificateData = [
