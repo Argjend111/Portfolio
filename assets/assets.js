@@ -629,6 +629,16 @@ export const experienceData = [
     "Developed a contract-categorization and notification app, collaborating remotely with a Kosovo-based team to deliver features efficiently."
   ],
 },
+ {
+    company: "Pabau Clinic Software - OnSite",
+    role: "Software Engineer Intern",
+    type: "Onsite - Pristina, Kosovo",
+    startDate: new Date(2025, 1, 1),
+    endDate: new Date(2025, 4, 31),
+    details: [
+      "Implemented scalable features and optimized functionality for an existing web platform. Worked with Next.js, React, JavaScript, CSS, GraphQL, and PostgreSQL.",
+    ],
+  },
   {
     company: "Ameba - Hybrid",
     role: "Software Developer",
@@ -638,16 +648,6 @@ export const experienceData = [
     details: [
       "Built and hosted scalable web solutions using Next.js, JavaScript, PHP, Bootstrap, and MySQLi. Collaborated via GitHub to maintain clean and reusable code.",
 
-    ],
-  },
-  {
-    company: "Pabau Clinic Software - OnSite",
-    role: "Software Engineer Intern",
-    type: "Onsite - Pristina, Kosovo",
-    startDate: new Date(2025, 1, 1),
-    endDate: new Date(2025, 4, 31),
-    details: [
-      "Implemented scalable features and optimized functionality for an existing web platform. Worked with Next.js, React, JavaScript, CSS, GraphQL, and PostgreSQL.",
     ],
   },
   {
