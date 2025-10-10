@@ -31,6 +31,9 @@ import img21 from './21.png';
 import img22 from './22.png';
 import img23 from './23.png';
 import img24 from './24.png';
+import img25 from './25.png';
+import img26 from './26.png';
+import img27 from './27.png';
 import img28 from './28.png';
 import img29 from './29.png';
 import img30 from './30.png';
@@ -482,88 +485,98 @@ export const projectData = [
     id: 1, 
     title: "Portfolio Website", 
     period: "10/2025 – Present", 
-    description: "Building a portfolio with Next.js, Tailwind CSS, and Framer Motion.",
-    tags: ["Next.js", "Tailwind CSS", "Framer Motion"]
+    description: "Built a responsive and animated personal portfolio using Next.js, Tailwind CSS, and Framer Motion. Designed to showcase projects and skills with smooth page transitions, dynamic components, and optimized SEO for performance. Deployed via Vercel with GitHub integration.",
+    tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    github: "https://github.com/argjendbytyci/portfolio"
   },
   { 
     id: 2, 
     title: "School Management System", 
     period: "11/2025 – Present", 
-    description: "Developing a full-stack school management platform using Next.js, TypeScript, Prisma, PostgreSQL, Clerk, and Tailwind CSS.",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Clerk", "Tailwind CSS"]
+    description: "Developing a full-stack school management platform using Next.js, TypeScript, Prisma, PostgreSQL, Clerk, and Tailwind CSS. The system manages students, classes, and teachers with secure authentication, dynamic dashboards, and real-time updates.",
+    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Clerk", "Tailwind CSS"],
+    github: "https://github.com/argjendbytyci/school-management-system"
   },
   { 
     id: 3, 
     title: "AI Real-Time Healthcare Assistant", 
     period: "09/2025 – 10/2025", 
-    description: "Built a real-time AI medical voice agent using Next.js and AssemblyAI for symptom analysis, with Neon DB and Vercel.",
-    tags: ["Next.js", "AssemblyAI", "Neon DB", "Vercel"]
+    description: "Built a real-time AI medical voice agent using Next.js and AssemblyAI for symptom analysis. Leveraged Neon Database for storage, deployed on Vercel, and integrated version control with GitHub. The app enables users to communicate symptoms and receive instant AI-driven health insights.",
+    tags: ["Next.js", "AssemblyAI", "Neon DB", "Vercel"],
+    github: "https://github.com/argjendbytyci/ai-healthcare-assistant"
   },
   { 
     id: 4, 
     title: "Rent a Car Platform", 
     period: "07/2025 – 08/2025", 
-    description: "Car rental platform built with Next.js, React, TypeScript, GraphQL, HyGraph, and Tailwind CSS.",
-    tags: ["Next.js", "React", "TypeScript", "GraphQL", "HyGraph", "Tailwind CSS"]
+    description: "Developed a car rental platform using Next.js 13, React, TypeScript, GraphQL, HyGraph, and Tailwind CSS. Integrated dynamic APIs for booking, car listings, and payment flows. Project managed via GitHub and deployed to Vercel.",
+    tags: ["Next.js", "React", "TypeScript", "GraphQL", "HyGraph", "Tailwind CSS"],
+    github: "https://github.com/argjendbytyci/rent-a-car"
   },
   { 
     id: 5, 
     title: "Project Management Web App", 
     period: "03/2025 – 04/2025", 
-    description: "Project management app built using Laravel 11, React, Inertia, and Tailwind CSS.",
-    tags: ["Laravel 11", "React", "Inertia", "Tailwind CSS"]
+    description: "Project management app built using Laravel 11, React, Inertia, and Tailwind CSS. Used internally by teams to manage tasks, track progress, and assign members. Provides real-time synchronization and user-friendly UI for productivity tracking.",
+    tags: ["Laravel 11", "React", "Inertia", "Tailwind CSS"],
+    github: "https://github.com/argjendbytyci/project-management"
   },
   { 
     id: 6, 
     title: "Pizza Ordering Windows App", 
     period: "02/2025 – 03/2025", 
-    description: "Developed a .NET (C#) & SQLite desktop app for order, billing, and sales management.",
-    tags: [".NET (C#)", "SQLite", "Windows Forms"]
+    description: "Developed a .NET (C#) and SQLite desktop app for managing pizza orders, billing, and sales reporting. Used daily by two pizzerias in Germany. Includes features like order tracking, receipt generation, and analytics.",
+    tags: [".NET (C#)", "SQLite", "Windows Forms"],
+    github: "https://github.com/argjendbytyci/pizza-ordering-app"
   },
   { 
     id: 7, 
     title: "AI-Powered PDF Chat Platform", 
     period: "01/2025 – 02/2025", 
-    description: "AI PDF Q&A app using Next.js, LangChain, OpenAI, Stripe, and Firebase.",
-    tags: ["Next.js", "LangChain", "OpenAI", "Stripe", "Firebase"]
+    description: "Built an AI-driven Q&A app using Next.js, LangChain, and OpenAI API to chat with PDFs. Integrated Stripe for subscription payments, Firebase for authentication, and deployed on Vercel. Users can upload PDFs and receive intelligent contextual responses.",
+    tags: ["Next.js", "LangChain", "OpenAI", "Stripe", "Firebase"],
+    github: "https://github.com/argjendbytyci/ai-pdf-chat"
   },
   { 
     id: 8, 
     title: "Market Points Web App", 
     period: "11/2024 – 01/2025", 
-    description: "PHP/MySQL rewards platform for redeeming points, integrated with WordPress.",
-    tags: ["PHP", "MySQL", "WordPress"]
+    description: "Built a PHP/MySQL rewards platform where users earn and redeem points for cash or gifts. Integrated WordPress for content management, with a simple admin panel for tracking users and transactions.",
+    tags: ["PHP", "MySQL", "WordPress"],
+    github: "https://github.com/argjendbytyci/market-points"
   },
   { 
     id: 9, 
     title: "Dashboard & Forms Generator", 
     period: "08/2024 – 09/2025", 
-    description: "Web app in PHP, HTML, CSS, and JS that generates dashboards and user management tools.",
-    tags: ["PHP", "HTML", "CSS", "JavaScript"]
+    description: "Developed a dynamic dashboard and form generator using PHP, HTML, CSS, and JavaScript. The app allows admin users to create new dashboards, authentication systems, and custom user management modules with ease.",
+    tags: ["PHP", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/argjendbytyci/dashboard-generator"
   },
   { 
     id: 10, 
     title: "Full-Stack E-commerce Admin Panel", 
     period: "06/2024 – 07/2024", 
-    description: "E-commerce site with admin panel using PHP & MySQLi, product management, and authentication.",
-    tags: ["PHP", "MySQLi", "HTML", "CSS", "JavaScript"]
+    description: "Created a complete e-commerce platform with an admin dashboard using PHP and MySQLi. Features include authentication, product and category management, order tracking, and sales analytics.",
+    tags: ["PHP", "MySQLi", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/argjendbytyci/ecommerce-admin"
   },
   { 
-  id: 11, 
-  title: "Python-Based Excel Data Forecasting", 
-  period: "01/2023 – 05/2023", 
-  description: "Developed a data forecasting solution in Python to analyze and predict weather patterns using advanced time series algorithms such as SARIMA, ARIMA, and NeuralProphet, as well as deep learning models built with Keras. Leveraged Pandas and NumPy for data processing and Excel integration for reporting and visualization.", 
-  tags: ["Python", "Pandas", "NumPy", "Machine Learning", "SARIMA", "ARIMA", "NeuralProphet", "Keras"]
-},
+    id: 11, 
+    title: "Python-Based Excel Data Forecasting", 
+    period: "01/2023 – 05/2023", 
+    description: "Developed a Python solution to analyze and predict weather patterns using SARIMA, ARIMA, and NeuralProphet models. Integrated Excel for visualization and reporting, leveraging Pandas, NumPy, and Keras for machine learning and time-series forecasting.",
+    tags: ["Python", "Pandas", "NumPy", "Machine Learning", "SARIMA", "ARIMA", "NeuralProphet", "Keras"],
+  },
   {
     id: 12,
     title: "Vue + Laravel Full Stack App",
     period: "07/2024 – 08/2025",
-    description: "Built a full stack application with Vue.js frontend and Laravel 11 API backend. Implemented login, registration, protected routes, token-based authentication, image uploads, and deployed both frontend and backend. Used Tailwind CSS for UI and Pinia for state management.",
-    tags: ["Vue.js", "Laravel 11", "Tailwind CSS", "Pinia", "API", "Authentication"]
+    description: "Developed a full-stack app using Vue.js frontend and Laravel 11 backend. Implemented authentication with tokens, protected routes, image uploads, and CRUD APIs. Used Pinia for state management and Tailwind CSS for UI. Deployed both client and server apps.",
+    tags: ["Vue.js", "Laravel 11", "Tailwind CSS", "Pinia", "API", "Authentication"],
+    github: "https://github.com/argjendbytyci/vue-laravel-fullstack"
   }
 ];
-
 
 export const projectImages = {
   1: [img1, img2, img3],
@@ -574,7 +587,7 @@ export const projectImages = {
   6: [img16, img17, img18, img40, img41, img42],
   7: [img20, img21, img44, img43],
   8: [img22, img23, img24, img45, img46, img47,img75,img76], 
-  9: [],
+  9: [img25,img26,img27],
   10: [img28, img29, img30, img50, img51],
   11: [img70,img71,img72],
   12: [img52, img53, img54],
