@@ -582,12 +582,37 @@ export const projectImages = {
 
 
 export const trainingData = [
-  { title: "AI SaaS Challenge", provider: "PapaReact", period: "01/2025 – 02/2025", description: "Built an AI-powered SaaS project with Clerk authentication and deployment." },
-  { title: "Programming Course", provider: "Ylber Veliu (YouTube)", period: "08/2024 – 10/2024", description: "Completed full course on PHP, HTML, CSS, JavaScript, MySQLi, and Laravel." },
-  { title: "Forex Trading Course", provider: "Vigan Morina", period: "07/2024 – 08/2024", description: "Studied Forex analysis and risk management strategies." },
-  { title: "Following Zerogravitysolutions Tutorials", provider: "YouTube", period: "03/2024 – 04/2024", description: "Learned Git and version control for project collaboration." },
-  { title: "C# .NET Course", provider: "Arjan Dalipi | Perprogramera", period: "01/2023 – 07/2023", description: "Practical skills in building Windows apps and understanding OOP principles." },
-  { title: "Front-End Course", provider: "SHPIK", period: "04/2023 – 06/2023", description: "Trained in HTML, CSS, Bootstrap, and JavaScript for responsive web design." },
+  {
+    title: "AI SaaS Challenge",
+    provider: "PapaReact",
+    startDate: new Date(2025, 0, 1), 
+    endDate: new Date(2025, 1, 28), 
+    description: "Completed a 5-days training from PapaReact",
+  },
+  {
+    title: "Programming Course",
+    provider: "Ylber Veliu (YouTube)",
+    startDate: new Date(2024, 7, 1), 
+    endDate: new Date(2024, 9, 31), 
+    description:
+      "Completed full course on PHP, HTML, CSS, JavaScript, MySQLi, and Laravel.",
+  },
+  {
+    title: "C# .NET Course",
+    provider: "Arjan Dalipi | Perprogramera",
+    startDate: new Date(2023, 0, 1), 
+    endDate: new Date(2023, 6, 31), 
+    description:
+      "Practical skills in building Windows apps and understanding OOP principles.",
+  },
+  {
+    title: "Front-End Course",
+    provider: "SHPIK",
+    startDate: new Date(2023, 3, 1), 
+    endDate: new Date(2023, 5, 30), 
+    description:
+      "Trained in HTML, CSS, Bootstrap, and JavaScript for responsive web design.",
+  },
 ];
 
 
@@ -630,7 +655,18 @@ export const educationData = [
 
 export const experienceData = [
   {
-    company: "Ameba",
+  company: "O2 (Germany) - Remote",
+  role: "Part-Time Developer",
+  type: "Remote / Part-Time",
+  startDate: new Date(2025, 5, 1), 
+  endDate: new Date(2025, 7, 31), 
+  details: [
+    "Developed an app to categorize contracts and notifications for internal use.",
+    "Worked remotely with a small team from Kosovo to deliver features efficiently.",
+  ],
+},
+  {
+    company: "Ameba - Hybrid",
     role: "Software Developer",
     type: "Remote - Suharekë, Kosovo",
     startDate: new Date(2024, 9, 1),
@@ -641,7 +677,7 @@ export const experienceData = [
     ],
   },
   {
-    company: "Pabau Clinic Software",
+    company: "Pabau Clinic Software - OnSite",
     role: "Software Engineer Intern",
     type: "Onsite - Pristina, Kosovo",
     startDate: new Date(2025, 1, 1),

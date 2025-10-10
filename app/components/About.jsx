@@ -1,5 +1,5 @@
 import React from "react";
-import { educationData, certificateData, experienceData } from "../../assets/assets";
+import { educationData, certificateData, experienceData, trainingData  } from "../../assets/assets";
 import { motion } from "framer-motion";
 import { ArrowDownCircle } from "lucide-react";
 
@@ -7,6 +7,7 @@ const About = () => {
   const allTimeline = [
     ...educationData.map((item) => ({ ...item, category: "Education" })),
     ...certificateData.map((item) => ({ ...item, category: "Certificate" })),
+    ...trainingData.map((item) => ({ ...item, category: "Training" })),
     ...experienceData.map((item) => ({ ...item, category: "Experience" })),
   ].sort((a, b) => {
     const aDate = a.endDate ? a.endDate.getTime() : new Date().getTime();
@@ -44,7 +45,7 @@ const About = () => {
 
         <div className="space-y-12 sm:space-y-16">
           {allTimeline.map((item, i) => {
-            const isLeft = item.category === "Education" || item.category === "Certificate";
+            const isLeft = ["Education", "Certificate", "Training"].includes(item.category);
             const start = item.startDate
               ? item.startDate.toLocaleDateString("en-US", { month: "short", year: "numeric" })
               : "";

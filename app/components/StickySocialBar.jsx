@@ -54,7 +54,7 @@ const StickySocialBar = () => {
       initial={{ y: 80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 flex bg-white/90 backdrop-blur-lg border border-gray-200 rounded-full items-center justify-center gap-2 sm:gap-4 md:gap-6 px-2 py-1 sm:px-5 sm:py-2 md:px-6 md:py-3 max-w-[95%] sm:max-w-fit shadow-xl"
+      className="fixed bottom-4 left-1/2 -translate-x-1/2 flex bg-white/90  backdrop-blur-lg border border-gray-200 rounded-full items-center justify-center gap-2 sm:gap-4 md:gap-6 px-2 py-1 sm:px-5 sm:py-2 md:px-6 md:py-3 max-w-[95%] sm:max-w-fit shadow-xl"
     >
       {socials.map((item, i) => (
         <a
