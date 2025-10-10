@@ -112,14 +112,12 @@ export default function Skills() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mt-2 sm:mt-3 tracking-tight"
             variants={textVariants}
           >
-            Skills & Technologies
           </motion.h2>
 
           <motion.p
-            className="text-gray-600 mt-3 sm:mt-4 text-xs sm:text-sm md:text-base max-w-md sm:max-w-xl mx-auto leading-relaxed"
+            className="text-gray-600 sm:mt-4 text-xs sm:text-sm md:text-base max-w-md sm:max-w-xl mx-auto leading-relaxed"
             variants={textVariants}
           >
-            Highlighting my main expertise first, then other tools and technologies.
           </motion.p>
         </motion.div>
 

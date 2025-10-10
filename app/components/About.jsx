@@ -1,13 +1,10 @@
 import React from "react";
-import { educationData, certificateData, experienceData, trainingData  } from "../../assets/assets";
+import { educationData, certificateData, experienceData } from "../../assets/assets";
 import { motion } from "framer-motion";
-import { ArrowDownCircle } from "lucide-react";
 
 const About = () => {
   const allTimeline = [
     ...educationData.map((item) => ({ ...item, category: "Education" })),
-    ...certificateData.map((item) => ({ ...item, category: "Certificate" })),
-    ...trainingData.map((item) => ({ ...item, category: "Training" })),
     ...experienceData.map((item) => ({ ...item, category: "Experience" })),
   ].sort((a, b) => {
     const aDate = a.endDate ? a.endDate.getTime() : new Date().getTime();
@@ -16,7 +13,7 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="w-full px-4 py-16 scroll-mt-20 ">
+    <div id="about" className="w-full px-4 py-16 scroll-mt-20">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -24,17 +21,9 @@ const About = () => {
         viewport={{ once: true }}
         className="flex flex-col items-center text-center"
       >
-        <motion.div
-          className="flex flex-col items-center gap-3 mb-6"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
-        >
-          <p className="text-gray-600 font-semibold text-xl sm:text-2xl tracking-wide">
-            Read this incredible journey
-          </p>
-          <ArrowDownCircle className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600" />
-        </motion.div>
-
+        <p className="text-gray-600 font-semibold text-xl sm:text-2xl tracking-wide mb-4">
+          Read this incredible journey
+        </p>
         <p className="text-gray-600 mt-4 max-w-3xl mx-auto leading-relaxed px-4 text-sm sm:text-base">
           Passionate about building smart, user-focused digital experiences that blend logic with creativity.
         </p>
@@ -45,7 +34,7 @@ const About = () => {
 
         <div className="space-y-12 sm:space-y-16">
           {allTimeline.map((item, i) => {
-            const isLeft = ["Education", "Certificate", "Training"].includes(item.category);
+            const isLeft = i % 2 === 0;
             const start = item.startDate
               ? item.startDate.toLocaleDateString("en-US", { month: "short", year: "numeric" })
               : "";
@@ -60,10 +49,14 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: i * 0.1 }}
                 viewport={{ once: true }}
-                className={`relative flex flex-col sm:flex-row items-start sm:items-center ${isLeft ? "sm:justify-start" : "sm:justify-end"}`}
+                className={`relative flex flex-col sm:flex-row items-start sm:items-center ${
+                  isLeft ? "sm:justify-start" : "sm:justify-end"
+                }`}
               >
                 <div
-                  className={`w-full sm:w-[46%] p-6 rounded-2xl shadow-md sm:shadow-lg bg-white border border-gray-100 ${isLeft ? "sm:text-right" : "sm:text-left"}`}
+                  className={`w-full sm:w-[46%] p-6 rounded-2xl shadow-md sm:shadow-lg bg-white border border-gray-100 ${
+                    isLeft ? "sm:text-right" : "sm:text-left"
+                  }`}
                 >
                   <h3 className="text-lg sm:text-xl font-semibold text-gray-900">{item.title || item.role}</h3>
                   <p className="text-gray-700 text-xs sm:text-sm mt-1">{item.institution || item.provider || item.company}</p>
@@ -78,7 +71,7 @@ const About = () => {
                       {item.details.map((d, j) => (
                         <li
                           key={j}
-                          className="relative  before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full"
+                          className="relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-2 before:h-2 before:rounded-full"
                         >
                           {d}
                         </li>

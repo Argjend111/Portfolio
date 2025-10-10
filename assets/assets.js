@@ -594,41 +594,6 @@ export const projectImages = {
 };
 
 
-export const trainingData = [
-  {
-    title: "AI SaaS Challenge",
-    provider: "PapaReact",
-    startDate: new Date(2025, 0, 1), 
-    endDate: new Date(2025, 1, 28), 
-    description: "Completed a 5-days training from PapaReact",
-  },
-  {
-    title: "Programming Course",
-    provider: "Ylber Veliu (YouTube)",
-    startDate: new Date(2024, 7, 1), 
-    endDate: new Date(2024, 9, 31), 
-    description:
-      "Completed full course on PHP, HTML, CSS, JavaScript, MySQLi, and Laravel.",
-  },
-  {
-    title: "C# .NET Course",
-    provider: "Arjan Dalipi | Perprogramera",
-    startDate: new Date(2023, 0, 1), 
-    endDate: new Date(2023, 6, 31), 
-    description:
-      "Practical skills in building Windows apps and understanding OOP principles.",
-  },
-  {
-    title: "Front-End Course",
-    provider: "SHPIK",
-    startDate: new Date(2023, 3, 1), 
-    endDate: new Date(2023, 5, 30), 
-    description:
-      "Trained in HTML, CSS, Bootstrap, and JavaScript for responsive web design.",
-  },
-];
-
-
 export const toolsData = [
   assets.vscode,
   assets.firebase,
@@ -674,8 +639,7 @@ export const experienceData = [
   startDate: new Date(2025, 5, 1), 
   endDate: new Date(2025, 7, 31), 
   details: [
-    "Developed an app to categorize contracts and notifications for internal use.",
-    "Worked remotely with a small team from Kosovo to deliver features efficiently.",
+    "Developed a contract-categorization and notification app, collaborating remotely with a Kosovo-based team to deliver features efficiently."
   ],
 },
   {
@@ -685,8 +649,8 @@ export const experienceData = [
     startDate: new Date(2024, 9, 1),
     endDate: new Date(2025, 1, 28),
     details: [
-      "Built and hosted scalable web solutions using Next.js, JavaScript, PHP, Bootstrap, and MySQLi.",
-      "Collaborated via GitHub to maintain clean and reusable code.",
+      "Built and hosted scalable web solutions using Next.js, JavaScript, PHP, Bootstrap, and MySQLi. Collaborated via GitHub to maintain clean and reusable code.",
+
     ],
   },
   {
@@ -696,8 +660,7 @@ export const experienceData = [
     startDate: new Date(2025, 1, 1),
     endDate: new Date(2025, 4, 31),
     details: [
-      "Implemented scalable features and optimized functionality for an existing web platform.",
-      "Worked with Next.js, React, JavaScript, CSS, GraphQL, and PostgreSQL.",
+      "Implemented scalable features and optimized functionality for an existing web platform. Worked with Next.js, React, JavaScript, CSS, GraphQL, and PostgreSQL.",
     ],
   },
   {
@@ -706,8 +669,7 @@ export const experienceData = [
     startDate: new Date(2023, 9, 1),
     endDate: new Date(2024, 9, 1),
     details: [
-      "Developed responsive web applications with Next.js, PHP, MySQLi, and JavaScript.",
-      "Handled projects using Jira and GitHub for version control.",
+      "Developed responsive web applications with Next.js, PHP, MySQLi, and JavaScript. Handled projects using Jira and GitHub.",
     ],
   },
   {
@@ -718,8 +680,6 @@ export const experienceData = [
     endDate: new Date(2017, 5, 30),
     details: [
       "At age 11, assisted my dad with his local internet distribution business.",
-      "Solved connection and PC issues for his clients around Suharekë.",
-      "Gained hands-on experience in networking and troubleshooting at a very young age.",
     ],
   },
 ];
@@ -742,3 +702,20 @@ export const certificateData = [
       "AI training on Machine Learning, ChatGPT, Gemini & ShqipAI with practical collaboration.",
   },
 ];
+
+  export const translationsnav = {
+  EN: {
+    about: "About Me",
+    services: "Services",
+    projects: "Projects",
+    skills: "Skills",
+    contact: "Contact",
+  },
+  AL: {
+    about: "Rreth Meje",
+    services: "Shërbimet",
+    projects: "Projektet",
+    skills: "Aftësitë",
+    contact: "Kontakti",
+  },
+};
