@@ -1,8 +1,35 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Mail, User, MessageSquare, Send } from "lucide-react";
+import emailjs from "emailjs-com";
 
 function Contact() {
+  const form = useRef();
+  const [status, setStatus] = useState(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setStatus("success");
+          e.target.reset();
+          setTimeout(() => setStatus(null), 4000);
+        },
+        () => {
+          setStatus("error");
+          setTimeout(() => setStatus(null), 4000);
+        }
+      );
+  };
+
   return (
     <div
       id="contact"
@@ -40,6 +67,8 @@ function Contact() {
       </motion.p>
 
       <motion.form
+        ref={form}
+        onSubmit={sendEmail}
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -51,6 +80,7 @@ function Contact() {
             <User className="text-gray-500 w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3" />
             <input
               type="text"
+              name="title"
               className="w-full p-2 sm:p-3 md:p-4 outline-none bg-transparent text-xs sm:text-sm md:text-base ml-2"
               placeholder="Enter your name"
               required
@@ -61,6 +91,7 @@ function Contact() {
             <Mail className="text-gray-500 w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3" />
             <input
               type="email"
+              name="email"
               className="w-full p-2 sm:p-3 md:p-4 outline-none bg-transparent text-xs sm:text-sm md:text-base ml-2"
               placeholder="Enter your email"
               required
@@ -71,6 +102,7 @@ function Contact() {
         <div className="relative flex border border-gray-300 rounded-md bg-white focus-within:border-gray-500 transition-all">
           <MessageSquare className="text-gray-500 w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 mt-3 sm:mt-4" />
           <textarea
+            name="name"
             rows="5"
             className="w-full p-2 sm:p-3 md:p-4 outline-none bg-transparent text-xs sm:text-sm md:text-base ml-2 resize-none"
             placeholder="Enter your message"
@@ -87,6 +119,24 @@ function Contact() {
           Submit now
           <Send className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
         </motion.button>
+
+        <AnimatePresence>
+          {status && (
+            <motion.p
+              key={status}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className={`text-center text-sm sm:text-base mt-4 ${
+                status === "success" ? "text-green-600" : "text-red-600"
+              }`}
+            >
+              {status === "success"
+                ? "Message sent successfully ✅"
+                : "Something went wrong ❌"}
+            </motion.p>
+          )}
+        </AnimatePresence>
       </motion.form>
     </div>
   );
