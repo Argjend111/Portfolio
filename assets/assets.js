@@ -525,7 +525,8 @@ export const projectData = [
     title: "Pizza Ordering Windows App", 
     period: "02/2025 – 03/2025", 
     description: "Developed a .NET (C#) and SQLite desktop app for managing pizza orders, billing, and sales reporting. Used daily by two pizzerias in Germany. Includes features like order tracking, receipt generation, and analytics.",
-    tags: [".NET (C#)", "SQLite", "Windows Forms"]
+    tags: [".NET (C#)", "SQLite", "Windows Forms"],
+      github: "https://github.com/Argjend111/Restaurant"
   },
   { 
     id: 7, 
@@ -539,7 +540,8 @@ export const projectData = [
     title: "Market Points Web App", 
     period: "11/2024 – 01/2025", 
     description: "Built a PHP/MySQL rewards platform where users earn and redeem points for cash or gifts. Integrated WordPress for content management, with a simple admin panel for tracking users and transactions.",
-    tags: ["PHP", "MySQL", "WordPress"]
+    tags: ["PHP", "MySQL", "WordPress"],
+    github: "https://github.com/Argjend111/Modeli-Playback"
   },
   { 
     id: 9, 
@@ -570,22 +572,6 @@ export const projectData = [
     description: "Developed a full-stack app using Vue.js frontend and Laravel 11 backend. Implemented authentication with tokens, protected routes, image uploads, and CRUD APIs. Used Pinia for state management and Tailwind CSS for UI. Deployed both client and server apps.",
     tags: ["Vue.js", "Laravel 11", "Tailwind CSS", "Pinia", "API", "Authentication"],
     github: "https://github.com/Argjend111/Laravel_vue"
-  },
-  { 
-    id: 13, 
-    title: "Restaurant Management App", 
-    period: "02/2025 – 03/2025", 
-    description: "Windows Forms C# app for managing restaurant orders, billing, and reporting, used daily by multiple restaurants.", 
-    tags: ["C#", "Windows Forms", "SQLite"],
-    github: "https://github.com/Argjend111/Restaurant"
-  },
-  { 
-    id: 14, 
-    title: "Playback Model App", 
-    period: "06/2024 – 07/2024", 
-    description: "App implementing playback models for media management and interaction. Built with PHP, JavaScript, and MySQL.", 
-    tags: ["PHP", "JavaScript", "MySQL"],
-    github: "https://github.com/Argjend111/Modeli-Playback"
   }
 ];
 

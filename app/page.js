@@ -30,9 +30,9 @@ export default function Home() {
         <>
           <Navbar />
           <Header />
-          <About />
+         <Services />
           <Work />
-          <Services />
+           <About />
           <Skills />
           <LanguageInterest />
           <Contact />
