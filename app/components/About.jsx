@@ -2,98 +2,80 @@ import React from "react";
 import { educationData, experienceData } from "../../assets/assets";
 import { motion } from "framer-motion";
 
-const About = () => {
-  const maxLength = Math.max(educationData.length, experienceData.length);
-  const timeline = Array.from({ length: maxLength }).map((_, i) => ({
-    education: educationData[i] || null,
-    experience: experienceData[i] || null,
-  }));
-
+const TimelineCard = ({ item, type }) => {
   const formatDate = (date) =>
     date?.toLocaleDateString("en-US", { month: "short", year: "numeric" }) || "Present";
 
   return (
-    <div id="about" className="w-full px-4 py-12 sm:py-16 scroll-mt-20">
+    <motion.div
+      initial={{ opacity: 0, x: type === "education" ? -40 : 40 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
+      className={`w-full p-3 sm:p-5 rounded-xl shadow-sm bg-white border border-gray-100 ${
+        type === "education" ? "text-right" : "text-left"
+      }`}
+    >
+      <h3 className="text-sm sm:text-lg font-semibold text-gray-900">
+        {item.title || item.role}
+      </h3>
+      <p className="text-gray-700 text-[11px] sm:text-sm mt-1">
+        {item.institution || item.company}
+      </p>
+      <p className="text-gray-500 text-[10px] sm:text-sm mt-1 italic">
+        {formatDate(item.startDate)} – {formatDate(item.endDate)}
+      </p>
+      {item.description && (
+        <p className="text-gray-600 text-[11px] sm:text-sm mt-2 leading-snug">
+          {item.description}
+        </p>
+      )}
+      {item.details && (
+        <ul className="mt-2 text-[11px] sm:text-sm list-none space-y-1">
+          {item.details.map((d, j) => (
+            <li key={j} className="relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full">
+              {d}
+            </li>
+          ))}
+        </ul>
+      )}
+    </motion.div>
+  );
+};
+
+const About = () => {
+  return (
+    <div id="about" className="w-full px-2 sm:px-4 py-8 sm:py-16 scroll-mt-20">
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="flex flex-col items-center text-center mb-12"
+        className="flex flex-col items-center text-center mb-8 sm:mb-12"
       >
-        <p className="text-gray-600 font-semibold text-lg sm:text-xl tracking-wide">
+        <p className="text-gray-600 font-semibold text-base sm:text-xl tracking-wide">
           Read this incredible journey
         </p>
-        <p className="text-gray-600 mt-2 max-w-2xl leading-relaxed text-sm sm:text-base">
+        <p className="text-gray-600 mt-2 max-w-xl leading-relaxed text-xs sm:text-base">
           Passionate about building smart, user-focused digital experiences that blend logic with creativity.
         </p>
       </motion.div>
 
-      <div className="relative w-full sm:w-11/12 max-w-6xl mx-auto">
-        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-gray-300 -translate-x-1/2"></div>
+      <div className="relative w-full sm:w-11/12 max-w-5xl mx-auto">
+        {/* Timeline line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] sm:w-[2px] bg-gray-300 -translate-x-1/2"></div>
 
-        <div className="space-y-12 sm:space-y-16">
-          {timeline.map((item, i) => (
-            <div key={i} className="relative flex flex-col sm:flex-row items-start sm:items-center justify-between w-full">
-              {item.education && (
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="w-full sm:w-[46%] p-4 sm:p-5 rounded-xl shadow-sm sm:shadow-md bg-white border border-gray-100 sm:text-right"
-                >
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">{item.education.title || item.education.role}</h3>
-                  <p className="text-gray-700 text-xs sm:text-sm mt-1">{item.education.institution || item.education.provider}</p>
-                  <p className="text-gray-500 text-xs sm:text-sm mt-1 italic">
-                    {formatDate(item.education.startDate)} – {formatDate(item.education.endDate)}
-                  </p>
-                  {item.education.description && (
-                    <p className="text-gray-600 text-xs sm:text-sm mt-2 leading-snug">{item.education.description}</p>
-                  )}
-                  {item.education.details && (
-                    <ul className="mt-2 text-xs sm:text-sm list-none sm:list-inside space-y-1">
-                      {item.education.details.map((d, j) => (
-                        <li key={j} className="relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full">
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.div>
-              )}
-
-              <span className="absolute left-1/2 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full border-2 border-white shadow-sm -translate-x-1/2"></span>
-
-              {item.experience && (
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  viewport={{ once: true }}
-                  className="w-full sm:w-[46%] p-4 sm:p-5 rounded-xl shadow-sm sm:shadow-md bg-white border border-gray-100 sm:text-left mt-8 sm:mt-0"
-                >
-                  <h3 className="text-base sm:text-lg font-semibold text-gray-900">{item.experience.title || item.experience.role}</h3>
-                  <p className="text-gray-700 text-xs sm:text-sm mt-1">{item.experience.company}</p>
-                  <p className="text-gray-500 text-xs sm:text-sm mt-1 italic">
-                    {formatDate(item.experience.startDate)} – {formatDate(item.experience.endDate)}
-                  </p>
-                  {item.experience.description && (
-                    <p className="text-gray-600 text-xs sm:text-sm mt-2 leading-snug">{item.experience.description}</p>
-                  )}
-                  {item.experience.details && (
-                    <ul className="mt-2 text-xs sm:text-sm list-none sm:list-outside space-y-1">
-                      {item.experience.details.map((d, j) => (
-                        <li key={j} className="relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full">
-                          {d}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </motion.div>
-              )}
-            </div>
-          ))}
+        <div className="grid grid-cols-2 gap-3 sm:gap-8">
+          <div className="space-y-6 sm:space-y-14">
+            {educationData.map((edu, i) => (
+              <TimelineCard key={i} item={edu} type="education" />
+            ))}
+          </div>
+          <div className="space-y-6 sm:space-y-14">
+            {experienceData.map((exp, i) => (
+              <TimelineCard key={i} item={exp} type="experience" />
+            ))}
+          </div>
         </div>
       </div>
     </div>

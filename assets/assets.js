@@ -444,19 +444,7 @@ export const servicesData = [
     title: "Backend & API Development",
     description:
       "Building and securing APIs with Node.js, PHP, and Laravel. I structure robust databases with MySQL, PostgreSQL, Firebase, and Neon for optimal performance.",
-  },
-  {
-    icon: <Briefcase size={36} />,
-    title: "Project Management & Deployment",
-    description:
-      "Deploying and maintaining applications on Vercel, Firebase, and other platforms. Experienced with Git, Jira, and CI/CD pipelines for smooth project delivery.",
-  },
-  {
-    icon: <Code size={36} />,
-    title: "Custom Business Solutions",
-    description:
-      "Developing tailored web platforms like school management systems, car rental platforms, and market rewards systems adapted to unique business needs.",
-  },
+  }
 ];
 
 export const infoList = [
