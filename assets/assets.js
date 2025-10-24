@@ -589,7 +589,7 @@ export const projectImages = {
   10: [img28, img29, img30, img50, img51],
   11: [img70,img71,img72],
   12: [img52, img53, img54],
-  13: [img78,img79,img80,img81,img81]
+  13: [img78,img79,img80,img81,img82]
 };
 
 
