@@ -60,6 +60,11 @@ import img71 from './71.png';
 import img72 from './72.png';
 import img76 from './76.png';
 import img75 from './75.png';
+import img78 from './78.png';
+import img79 from './79.png';
+import img80 from './80.png';
+import img81 from './81.png';
+import img82 from './82.png';
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import mail_icon from './mail_icon.png';
@@ -469,6 +474,14 @@ export const infoList = [
 ];
 
 export const projectData = [
+  {
+  id: 13,
+  title: "SaaS LMS Platform",
+  period: "05/2025",
+  description: "Developed a full-featured SaaS LMS platform using Next.js, Supabase, Stripe, and Clerk for real-time teaching and learning. Features include user authentication, subscription payments, AI-powered vocal agent with Vapi, interactive lessons, and error monitoring with Sentry. Deployed via Vercel with dynamic components and optimized performance, suitable for commercial use.",
+  tags: ["Next.js", "Supabase", "Stripe", "Clerk", "Vapi", "AI", "Sentry", "Tailwind CSS"],
+  github: "https://github.com/Argjend111/saas-ai"
+},
   { 
     id: 1, 
     title: "Portfolio Website", 
@@ -576,6 +589,7 @@ export const projectImages = {
   10: [img28, img29, img30, img50, img51],
   11: [img70,img71,img72],
   12: [img52, img53, img54],
+  13: [img78,img79,img80,img81,img81]
 };
 
 
