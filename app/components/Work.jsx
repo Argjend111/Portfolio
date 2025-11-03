@@ -26,9 +26,6 @@ const ProjectCard = ({ project, onClick }) => {
         <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-1 sm:mb-2 cursor-pointer">
           {project.title}
         </h2>
-        <p className="text-gray-500 text-xs sm:text-sm md:text-base mb-1 sm:mb-2 cursor-pointer">
-          {project.period}
-        </p>
         <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed cursor-pointer">
           {project.description}
         </p>
