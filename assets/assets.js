@@ -65,6 +65,15 @@ import img79 from './79.png';
 import img80 from './80.png';
 import img81 from './81.png';
 import img82 from './82.png';
+import img111 from './111.png';
+import img112 from './112.png';
+import img113 from './113.png';
+import img114 from './114.png';
+import img115 from './115.png';
+import img116 from './116.png';
+import img117 from './117.png';
+import img118 from './118.png';
+import img119 from './119.png';
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import mail_icon from './mail_icon.png';
@@ -182,7 +191,7 @@ export const skillData = [
   {
     name: "TypeScript",
     type: "Full Stack",
-    experience: "5+ months",
+    experience: "1 year",
     level: "Intermediate",
     description: "Used for type-safe React development in School Management and Rent a Car projects.",
     icon: Braces
@@ -236,6 +245,14 @@ export const skillData = [
     icon: Database
   },
   {
+  name: "N8N",
+  type: "Full Stack",
+  experience: "5 months",
+  level: "Intermediate",
+  description: "Automating workflows and managing relational data.",
+  icon: Database
+},
+  {
     name: "GitHub",
     type: "Full Stack",
     experience: "3+ years",
@@ -269,7 +286,7 @@ export const skillData = [
   },
   {
     name: "JavaScript",
-    type: "Frontend",
+    type: "Full Stack",
     experience: "4+ years",
     level: "Advanced",
     description: "Core scripting language for dynamic web apps like Market Points and Rent a Car.",
@@ -381,7 +398,7 @@ export const skillData = [
   },
   {
     name: "Jira",
-    type: "Working",
+    type: "Full Stack",
     experience: "2+ years",
     level: "Intermediate",
     description: "Used for managing tasks and sprints during freelance and Ameba collaborations.",
@@ -479,7 +496,7 @@ export const projectData = [
   title: "Job Board SaaS - BalkanBridge",
   description: "Built a full-featured Job Board SaaS with Next.js, Prisma, Neon Postgres, TailwindCSS, Shadcn/UI, Auth.js, Stripe, Inngest, and Arcjet. Includes role-based onboarding, rich job editor, secure payments, automated workflows, job expiration, and Vercel deployment.",
   tags: ["Next.js", "Prisma", "Neon", "Tailwind CSS", "Shadcn/UI", "Auth.js", "Stripe", "Inngest", "Arcjet", "Vercel"],
-  github: "https://www.marshalcode.com/free-tuto..."
+  github: "https://github.com/Argjend111/balkan_bridge"
 },
   {
   id: 13,
@@ -583,7 +600,8 @@ export const projectImages = {
   10: [img28, img29, img30, img50, img51],
   11: [img70,img71,img72],
   12: [img52, img53, img54],
-  13: [img78,img79,img80,img81,img82]
+  13: [img78,img79,img80,img81,img82],
+  14:[img111,img112,img113,img114,img115,img116,img117,img118,img119]
 };
 
 
