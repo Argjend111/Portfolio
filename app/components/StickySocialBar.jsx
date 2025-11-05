@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, FileText, ArrowUp } from "lucide-react";
 
+
 const StickySocialBar = () => {
   const socials = [
     {
@@ -26,7 +27,7 @@ const StickySocialBar = () => {
     {
       name: "Resume",
       icon: <FileText className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />,
-      href: "/resume.pdf",
+      href: "/Argjend-Bytyçi-CV.pdf",
       color: "bg-purple-500 hover:bg-purple-600",
     },
   ];
