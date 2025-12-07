@@ -17,7 +17,7 @@ const ProjectCard = ({ project, onClick }) => {
           <Image
             src={firstImage}
             alt={`Project ${project.id} image`}
-            fill
+
             style={{ objectFit: "cover" }}
           />
         </div>
@@ -94,7 +94,6 @@ const ProjectModal = ({ project, images, onClose }) => {
           <Image
             src={images[currentImageIndex]}
             alt={`Project ${project.id} image`}
-            fill
             style={{ objectFit: "cover" }}
             className="cursor-pointer"
           />
