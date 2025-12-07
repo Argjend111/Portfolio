@@ -74,6 +74,11 @@ import img116 from './116.png';
 import img117 from './117.png';
 import img118 from './118.png';
 import img119 from './119.png';
+import img121 from './121.png';
+import img122 from './122.png';
+import img123 from './123.png';
+import img124 from './124.png';
+import img125 from './125.png';
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import mail_icon from './mail_icon.png';
@@ -492,6 +497,12 @@ export const infoList = [
 
 export const projectData = [
 {
+  id: 15,
+  title: "LabGrad",
+  description: "Built a modern, responsive construction company website for a Slovenian client using Next.js and Framer Motion. Deployed on Vercel with a custom domain: https://www.labgrad.si/ ",
+  tags: ["Next.js", "Framer Motion", "Tailwind CSS", "JSON", "Responsive Design", "SEO", "Vercel","Domain"]
+},
+{
   id: 14,
   title: "Job Board SaaS - BalkanBridge",
   description: "Built a full-featured Job Board SaaS with Next.js, Prisma, Neon Postgres, TailwindCSS, Shadcn/UI, Auth.js, Stripe, Inngest, and Arcjet. Includes role-based onboarding, rich job editor, secure payments, automated workflows, job expiration, and Vercel deployment.",
@@ -601,7 +612,8 @@ export const projectImages = {
   11: [img70,img71,img72],
   12: [img52, img53, img54],
   13: [img78,img79,img80,img81,img82],
-  14:[img111,img112,img113,img114,img115,img116,img117,img118,img119]
+  14:[img111,img112,img113,img114,img115,img116,img117,img118,img119],
+  15:[img121,img122,img123,img124,img125]
 };
 
 
