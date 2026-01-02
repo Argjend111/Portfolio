@@ -79,6 +79,11 @@ import img122 from './122.png';
 import img123 from './123.png';
 import img124 from './124.png';
 import img125 from './125.png';
+import img130 from './130.png';
+import img131 from './131.png';
+import img132 from './132.png';
+import img133 from './133.png';
+import img134 from './134.png';
 import right_arrow_white from './right-arrow-white.png';
 import logo from './logo.png';
 import mail_icon from './mail_icon.png';
@@ -503,8 +508,27 @@ export const projectData = [
   tags: ["Next.js", "Framer Motion", "Tailwind CSS", "JSON", "Responsive Design", "SEO", "Vercel","Domain"]
 },
 {
+  id: 16,
+  title: "BalkanMarket",
+  description:
+  "Currently building a modern e-commerce platform with Next.js 16, integrating Clerk authentication, Sanity CMS, and Stripe payments. Actively adding AI features such as an AI Shopping Assistant and AI-powered Admin Dashboard using the Vercel AI SDK.",
+  tags: [
+    "Next.js 16",
+    "React 19",
+    "Clerk",
+    "Sanity CMS",
+    "Stripe",
+    "Vercel AI SDK",
+    "Zustand",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "AI (In Progress)"
+  ],
+   github: "https://github.com/Argjend111/balkan_bridge"
+},
+{
   id: 14,
-  title: "Job Board SaaS - BalkanBridge",
+  title: "BalkanBridge",
   description: "Built a full-featured Job Board SaaS with Next.js, Prisma, Neon Postgres, TailwindCSS, Shadcn/UI, Auth.js, Stripe, Inngest, and Arcjet. Includes role-based onboarding, rich job editor, secure payments, automated workflows, job expiration, and Vercel deployment.",
   tags: ["Next.js", "Prisma", "Neon", "Tailwind CSS", "Shadcn/UI", "Auth.js", "Stripe", "Inngest", "Arcjet", "Vercel"],
   github: "https://github.com/Argjend111/balkan_bridge"
@@ -591,7 +615,7 @@ export const projectData = [
   },
   {
     id: 12,
-    title: "Vue + Laravel Full Stack App",
+    title: "Secure Full-Stack Web Application",
     description: "Developed a full-stack app using Vue.js frontend and Laravel 11 backend. Implemented authentication with tokens, protected routes, image uploads, and CRUD APIs. Used Pinia for state management and Tailwind CSS for UI. Deployed both client and server apps.",
     tags: ["Vue.js", "Laravel 11", "Tailwind CSS", "Pinia", "API", "Authentication"],
     github: "https://github.com/Argjend111/Laravel_vue"
@@ -613,7 +637,8 @@ export const projectImages = {
   12: [img52, img53, img54],
   13: [img78,img79,img80,img81,img82],
   14:[img111,img112,img113,img114,img115,img116,img117,img118,img119],
-  15:[img121,img122,img123,img124,img125]
+  15:[img121,img122,img123,img124,img125],
+  16:[img130,img131,img132,img133,img134],
 };
 
 

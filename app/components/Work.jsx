@@ -13,12 +13,13 @@ const ProjectCard = ({ project, onClick }) => {
       className="cursor-pointer rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 w-full mx-auto mb-6"
     >
       {firstImage && (
-        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72 cursor-pointer">
+        <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 overflow-hidden rounded-t-2xl">
           <Image
             src={firstImage}
             alt={`Project ${project.id} image`}
-
-            style={{ objectFit: "cover" }}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover"
           />
         </div>
       )}
