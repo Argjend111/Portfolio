@@ -25,7 +25,7 @@ const StickySocialBar = () => {
       color: "bg-red-500 hover:bg-red-600",
     },
     {
-      name: "Resumee",
+      name: "Resume",
       icon: <FileText className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />,
       href: "/Argjend-Bytyçi-CV.pdf",
       color: "bg-purple-500 hover:bg-purple-600",
