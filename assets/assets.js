@@ -439,8 +439,8 @@ export const languageInterest = [
     icon: Brain
   },
   {
-    name: "C++",
-    reason: "Improving low-level system and algorithmic programming capabilities.",
+    name: "PyTorch",
+    reason: "Learning to build and train deep learning models for AI projects.",
     icon: Cpu
   },
   {
