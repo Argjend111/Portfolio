@@ -514,6 +514,7 @@ export const projectData = [
   "Currently building a modern e-commerce platform with Next.js 16, integrating Clerk authentication, Sanity CMS, and Stripe payments. Actively adding AI features such as an AI Shopping Assistant and AI-powered Admin Dashboard using the Vercel AI SDK.",
   tags: [
     "Next.js 16",
+    "Node.js",
     "React 19",
     "Clerk",
     "Sanity CMS",
@@ -530,19 +531,46 @@ export const projectData = [
   id: 14,
   title: "BalkanBridge",
   description: "Built a full-featured Job Board SaaS with Next.js, Prisma, Neon Postgres, TailwindCSS, Shadcn/UI, Auth.js, Stripe, Inngest, and Arcjet. Includes role-based onboarding, rich job editor, secure payments, automated workflows, job expiration, and Vercel deployment.",
-  tags: ["Next.js", "Prisma", "Neon", "Tailwind CSS", "Shadcn/UI", "Auth.js", "Stripe", "Inngest", "Arcjet", "Vercel"],
+  tags: ["Next.js", "Prisma","Node.js", "Neon", "Tailwind CSS", "Shadcn/UI", "Auth.js", "Stripe", "Inngest", "Arcjet", "Vercel"],
   github: "https://github.com/Argjend111/balkan_bridge"
 },
-  {
-  id: 13,
-  title: "SaaS LMS Platform",
-  description: "Developed a full-featured SaaS LMS platform using Next.js, Supabase, Stripe, and Clerk for real-time teaching and learning. Features include user authentication, subscription payments, AI-powered vocal agent with Vapi, interactive lessons, and error monitoring with Sentry. Deployed via Vercel with dynamic components and optimized performance, suitable for commercial use.",
-  tags: ["Next.js", "Supabase", "Stripe", "Clerk", "Vapi", "AI", "Sentry", "Tailwind CSS"],
-  github: "https://github.com/Argjend111/saas-ai"
-},
+ { 
+    id: 6, 
+    title: "PizzaGenuss", 
+    description: "Developed a .NET (C#) and SQLite desktop app for managing pizza orders, billing, and sales reporting. Used daily by two pizzerias in Germany. Includes features like order tracking, receipt generation, and analytics.",
+    tags: [".NET (C#)", "SQLite", "Windows Forms"],
+      github: "https://github.com/Argjend111/Restaurant"
+  },
+      { 
+    id: 8, 
+    title: "AnswerRKS", 
+    description: "Built a PHP/MySQL rewards platform where users earn and redeem points for cash or gifts. Integrated WordPress for content management, with a simple admin panel for tracking users and transactions.",
+    tags: ["PHP", "MySQL", "WordPress"],
+    github: "https://github.com/Argjend111/Modeli-Playback"
+  },
+      { 
+    id: 7, 
+    title: "TalkWithDocs", 
+    description: "Built an AI-driven Q&A app using Next.js, LangChain, and OpenAI API to chat with PDFs. Integrated Stripe for subscription payments, Firebase for authentication, and deployed on Vercel. Users can upload PDFs and receive intelligent contextual responses.",
+    tags: ["Next.js", "LangChain", "OpenAI", "Stripe", "Firebase"]
+  },
+    { 
+    id: 5, 
+    title: "ProjectPilot", 
+    description: "Project management app built using Laravel 11, React, Inertia, and Tailwind CSS. Used internally by teams to manage tasks, track progress, and assign members. Provides real-time synchronization and user-friendly UI for productivity tracking.",
+    tags: ["Laravel 11", "React", "Inertia", "Tailwind CSS","JWT"],
+    github: "https://github.com/Argjend111/project-management"
+  },
   { 
+    id: 3, 
+    title: "CareBot", 
+    description: "Built a real-time AI medical voice agent using Next.js and AssemblyAI for symptom analysis. Leveraged Neon Database for storage, deployed on Vercel. The app enables users to communicate symptoms and receive instant AI-driven health insights.",
+    tags: ["Next.js", "AssemblyAI", "Neon DB", "Vercel"],
+    github: "https://github.com/Argjend111/ai-health-mate"
+  },
+    { 
     id: 1, 
-    title: "Portfolio Website", 
+    title: "Portfolio", 
     description: "Built a responsive and animated personal portfolio using Next.js, Tailwind CSS, and Framer Motion. Designed to showcase projects and skills with smooth page transitions, dynamic components, and optimized SEO for performance. Deployed via Vercel with GitHub integration.",
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/Argjend111/Portfolio"
@@ -553,46 +581,19 @@ export const projectData = [
     description: "Developing a full-stack school management platform using Next.js, TypeScript, Prisma, PostgreSQL, Clerk, and Tailwind CSS. The system manages students, classes, and teachers with secure authentication, dynamic dashboards, and real-time updates.",
     tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Clerk", "Tailwind CSS"]
   },
-  { 
-    id: 3, 
-    title: "AI Real-Time Healthcare Assistant", 
-    description: "Built a real-time AI medical voice agent using Next.js and AssemblyAI for symptom analysis. Leveraged Neon Database for storage, deployed on Vercel. The app enables users to communicate symptoms and receive instant AI-driven health insights.",
-    tags: ["Next.js", "AssemblyAI", "Neon DB", "Vercel"],
-    github: "https://github.com/Argjend111/ai-health-mate"
-  },
+    {
+  id: 13,
+  title: "EduAI",
+  description: "Developed a full-featured SaaS LMS platform using Next.js, Supabase, Stripe, and Clerk for real-time teaching and learning. Features include user authentication, subscription payments, AI-powered vocal agent with Vapi, interactive lessons, and error monitoring with Sentry. Deployed via Vercel with dynamic components and optimized performance, suitable for commercial use.",
+  tags: ["Next.js", "Supabase", "Stripe", "Clerk", "Vapi", "AI", "Sentry", "Tailwind CSS"],
+  github: "https://github.com/Argjend111/saas-ai"
+},
   { 
     id: 4, 
-    title: "Rent a Car Platform", 
+    title: "Rent a Car", 
     description: "Developed a car rental platform using Next.js 13, React, TypeScript, GraphQL, HyGraph, and Tailwind CSS. Integrated dynamic APIs for booking, car listings, and payment flows. Project managed via GitHub and deployed to Vercel.",
     tags: ["Next.js", "React", "TypeScript", "GraphQL", "HyGraph", "Tailwind CSS"],
     github:"https://github.com/Argjend111/car-rental"
-  },
-  { 
-    id: 5, 
-    title: "Project Management Web App", 
-    description: "Project management app built using Laravel 11, React, Inertia, and Tailwind CSS. Used internally by teams to manage tasks, track progress, and assign members. Provides real-time synchronization and user-friendly UI for productivity tracking.",
-    tags: ["Laravel 11", "React", "Inertia", "Tailwind CSS"],
-    github: "https://github.com/Argjend111/project-management"
-  },
-  { 
-    id: 6, 
-    title: "Pizza Ordering Windows App", 
-    description: "Developed a .NET (C#) and SQLite desktop app for managing pizza orders, billing, and sales reporting. Used daily by two pizzerias in Germany. Includes features like order tracking, receipt generation, and analytics.",
-    tags: [".NET (C#)", "SQLite", "Windows Forms"],
-      github: "https://github.com/Argjend111/Restaurant"
-  },
-  { 
-    id: 7, 
-    title: "AI-Powered PDF Chat Platform", 
-    description: "Built an AI-driven Q&A app using Next.js, LangChain, and OpenAI API to chat with PDFs. Integrated Stripe for subscription payments, Firebase for authentication, and deployed on Vercel. Users can upload PDFs and receive intelligent contextual responses.",
-    tags: ["Next.js", "LangChain", "OpenAI", "Stripe", "Firebase"]
-  },
-  { 
-    id: 8, 
-    title: "Market Points Web App", 
-    description: "Built a PHP/MySQL rewards platform where users earn and redeem points for cash or gifts. Integrated WordPress for content management, with a simple admin panel for tracking users and transactions.",
-    tags: ["PHP", "MySQL", "WordPress"],
-    github: "https://github.com/Argjend111/Modeli-Playback"
   },
   { 
     id: 9, 
@@ -627,13 +628,14 @@ export const projectImages = {
   2: [img4],
   3: [img7, img8, img9, img34, img35],
   4: [img10, img11, img12, img37],
-  5: [img13, img14, img15, img38, img39],
+  
   6: [img16, img17, img18, img40, img41, img42],
   7: [img20, img21, img44, img43],
   8: [img22, img23, img24, img45, img46, img47,img75,img76], 
   9: [img25,img26,img27],
   10: [img28, img29, img30, img50, img51],
   11: [img70,img71,img72],
+  5: [img13, img14, img15, img38, img39],
   12: [img52, img53, img54],
   13: [img78,img79,img80,img81,img82],
   14:[img111,img112,img113,img114,img115,img116,img117,img118,img119],
