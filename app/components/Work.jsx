@@ -246,14 +246,14 @@ export default function Work() {
             </Card>
           </div>
 
-          <Stagger className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {projectData.map((project) => {
               const image = projectImages[project.id]?.[0];
+
               return (
-                <motion.button
+                <button
                   key={project.id}
                   type="button"
-                  variants={fadeUp}
                   onClick={() => setSelectedProject(project)}
                   className="group text-left"
                 >
@@ -303,10 +303,10 @@ export default function Work() {
                       </div>
                     </div>
                   </Card>
-                </motion.button>
+                </button>
               );
             })}
-          </Stagger>
+          </div>
         </div>
       </SectionShell>
 
