@@ -44,7 +44,7 @@ export default function Header() {
               <Stagger className="space-y-6">
                 <motion.div variants={fadeUp} className="space-y-5">
                   <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">
-                  Software engineering with real-world impact
+                  Real-world impact
                   </p>
                   <h1 className="max-w-4xl text-4xl font-bold leading-[0.95] tracking-[-0.06em] text-slate-950 sm:text-5xl lg:text-7xl">
                     <span className="block">Hi, I&apos;m Argjend Bytyci.</span>
@@ -130,14 +130,17 @@ export default function Header() {
                         />
                       </div>
                       <div>
-                        <p className="text-xs uppercase tracking-[0.3em] text-slate-400">Now shipping</p>
+                    <p className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-slate-400">
+  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+ Driven by Detail...
+</p>
                       </div>
                     </div>
 
                     <div className="grid gap-3">
                       {[
-                        "High-performance systems built with modern architectures",
-"Scalable APIs and backend systems with optimized databases",
+                        "Turning ideas into real digital products.",
+"Building solutions that users actually need.",
 "From idea to production-ready software with real users in mind",
                       ].map((item) => (
                         <div
