@@ -1,34 +1,30 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { assets } from "../../assets/assets";
 
-export const Footer = () => {
+export function Footer() {
   return (
-    <div className="text-gray-800 px-4 sm:px-6 mt-20">
+    <footer className="px-4 pb-10 sm:px-6 lg:px-8">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="flex items-center justify-between py-4 border-t border-gray-300"
+        className="container-shell glass-panel flex flex-col items-center justify-between gap-5 rounded-[2rem] border border-white/70 px-6 py-6 text-center sm:flex-row sm:text-left"
       >
-        <div className="flex-shrink-0">
-          <Image
-            src={assets.logo}
-            alt="logo"
-            className="w-20 sm:w-24 md:w-28 lg:w-32"
-          />
+        <div className="flex items-center gap-4">
+          <div>
+            <p className="text-sm font-semibold tracking-[0.18em] text-slate-500 uppercase">Argjend Bytyci</p>
+            <p className="text-sm text-slate-600">Software Engineer building premium digital products.</p>
+          </div>
         </div>
-        <div className="text-right">
-          <p className="text-xs sm:text-sm md:text-base text-gray-600">
-            © 2026 Argjend Bytyci. All rights reserved.
-          </p>
-        </div>
+
+        <p className="text-sm text-slate-500">Copyright 2026 Argjend Bytyci. All rights reserved.</p>
       </motion.div>
-    </div>
+    </footer>
   );
-};
+}
 
 export default Footer;

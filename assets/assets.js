@@ -153,7 +153,7 @@ export const assets = {
   mongodb,
   right_arrow_white,
   logo,
-  cv: "/Argjend-Bytyçi-CV.pdf",
+  cv: "/Argjend-Byty%C3%A7i-CV.pdf",
   mail_icon,
   mail_icon_dark,
   profile_img,
@@ -450,32 +450,30 @@ export const languageInterest = [
   }
 ];
 
-
-
 export const servicesData = [
   {
     icon: <Globe size={36} />,
-    title: "Full-Stack Web Development",
+    title: "Full-Stack Development",
     description:
-      "I build fast, responsive, and scalable full-stack web applications using Next.js, React, PHP, Laravel, and MySQL. From backend APIs to front-end design — I handle everything end-to-end.",
+      "Building scalable applications using .NET, Next.js, React, PHP, and SQL Server — covering frontend, backend, and databases.",
   },
   {
     icon: <Smartphone size={36} />,
-    title: "Desktop & Mobile App Development",
+    title: "Desktop & System Applications",
     description:
-      "Experienced in creating C# .NET Windows apps and modern responsive mobile web apps that deliver smooth, optimized performance on all devices.",
+      "Developing high-performance desktop solutions with C# .NET, focused on reliability and real-world business use.",
   },
   {
     icon: <Cpu size={36} />,
-    title: "AI & Automation Integration",
+    title: "AI & Automation",
     description:
-      "Integrating AI tools like ChatGPT, Gemini, and AssemblyAI to automate workflows, analyze data, and enhance user interactions with intelligent features.",
+      "Integrating AI and automation to streamline workflows and enhance system intelligence.",
   },
   {
     icon: <Server size={36} />,
-    title: "Backend & API Development",
+    title: "Backend & API Systems",
     description:
-      "Building and securing APIs with Node.js, PHP, and Laravel. I structure robust databases with MySQL, PostgreSQL, Firebase, and Neon for optimal performance.",
+      "Designing secure APIs and managing scalable backend systems using Node.js, PHP, .NET, and modern databases.",
   }
 ];
 

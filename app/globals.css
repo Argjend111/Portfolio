@@ -1,1 +1,106 @@
 @import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: rgba(255, 255, 255, 0.92);
+  --border-soft: rgba(99, 102, 241, 0.14);
+  --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.12);
+  --shadow-card: 0 18px 60px rgba(15, 23, 42, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(99, 102, 241, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 22%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2ff 55%, #ffffff 100%);
+  color: var(--foreground);
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"] {
+  cursor: pointer;
+}
+
+button:disabled,
+[type="button"]:disabled,
+[type="submit"]:disabled,
+[type="reset"]:disabled {
+  cursor: not-allowed;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 35%, transparent 85%);
+  z-index: -1;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.2);
+  color: #111827;
+}
+
+@utility container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility section-shell {
+  @apply container-shell py-20 sm:py-24 lg:py-28;
+}
+
+@utility glass-panel {
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+@utility premium-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.78));
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-soft);
+  backdrop-filter: blur(16px);
+}
+
+@utility text-gradient {
+  @apply bg-gradient-to-r from-indigo-600 via-sky-500 to-indigo-500 bg-clip-text text-transparent;
+}
+
+@utility hover-lift {
+  @apply transition-all duration-500 hover:-translate-y-1.5 hover:scale-[1.01];
+}
+
+@utility subtle-ring {
+  @apply ring-1 ring-inset ring-white/60;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

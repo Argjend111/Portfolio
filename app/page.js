@@ -1,17 +1,18 @@
 "use client";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import About from "./components/About";
-import Services from "./components/Services";
-import Work from "./components/Work";
 import Contact from "./components/Contact";
 import { Footer } from "./components/Footer";
-import StickySocialBar from "./components/StickySocialBar";
-import Skills from "./components/Skills";
+import Header from "./components/Header";
 import LanguageInterest from "./components/LanguageInterest";
 import LoadingScreen from "./components/LoadingScreen";
-import { AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
+import Services from "./components/Services";
+import Skills from "./components/Skills";
+import StickySocialBar from "./components/StickySocialBar";
+import Work from "./components/Work";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,23 +24,28 @@ export default function Home() {
 
   return (
     <>
-      <AnimatePresence>
-        {isLoading && <LoadingScreen key="loader" />}
-      </AnimatePresence>
+      <AnimatePresence>{isLoading && <LoadingScreen key="loader" />}</AnimatePresence>
 
       {!isLoading && (
-        <>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
           <Navbar />
-          <Header />
-         <Services />
-          <Work />
-           <About />
-          <Skills />
-          <LanguageInterest />
-          <Contact />
+          <main className="relative pb-32">
+            <Header />
+            <Services />
+            <Work />
+            <About />
+            <Skills />
+            <LanguageInterest />
+            <Contact />
+          </main>
           <StickySocialBar />
           <Footer />
-        </>
+        </motion.div>
       )}
     </>
   );

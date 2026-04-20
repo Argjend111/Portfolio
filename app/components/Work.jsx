@@ -1,251 +1,318 @@
 "use client";
 
-import React, { useState } from "react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowRight, Github, X } from "lucide-react";
 import { projectData, projectImages } from "../../assets/assets";
+import Button from "./ui/Button";
+import Card from "./ui/Card";
+import SectionHeading from "./ui/SectionHeading";
+import SectionShell from "./ui/SectionShell";
+import { Stagger, fadeUp } from "./ui/Reveal";
 
-const ProjectCard = ({ project, onClick }) => {
-  const firstImage = projectImages[project.id]?.[0] || null;
-  return (
-    <div
-      onClick={onClick}
-      className="cursor-pointer rounded-2xl bg-white border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-300 w-full mx-auto mb-6"
-    >
-      {firstImage && (
-        <div className="relative w-full h-56 sm:h-64 md:h-72 lg:h-80 overflow-hidden rounded-t-2xl">
-          <Image
-            src={firstImage}
-            alt={`Project ${project.id} image`}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover"
-          />
-        </div>
-      )}
-      <div className="p-3 sm:p-4 flex flex-col flex-grow justify-between cursor-pointer">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-800 mb-1 sm:mb-2 cursor-pointer">
-          {project.title}
-        </h2>
-        <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed cursor-pointer">
-          {project.description}
-        </p>
-        {project.tags && (
-          <div className="flex flex-wrap gap-1 sm:gap-2 mt-2 cursor-pointer">
-            {project.tags.map((tag, index) => (
-              <span
-                key={index}
-                className="bg-indigo-100 text-indigo-800 text-xs sm:text-xs px-2 py-1 rounded-full cursor-pointer"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-        {project.github && (
-          <div className="relative mt-3 w-fit mx-auto group cursor-pointer">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-gray-900 text-white rounded-full font-semibold text-xs sm:text-sm hover:bg-gray-800 transition-all duration-300 cursor-pointer"
-            >
-              View on GitHub
-            </a>
-            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-xs px-2 py-1 rounded-full whitespace-nowrap transition-all duration-300 cursor-pointer">
-              Need permission — text me :)
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-};
-
-const ProjectModal = ({ project, images, onClose }) => {
+function ProjectModal({ project, onClose }) {
+  const images = projectImages[project.id] || [];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [mounted, setMounted] = useState(false);
+  const modalScrollRef = useRef(null);
 
-  const prevImage = () =>
-    setCurrentImageIndex((prev) =>
-      prev === 0 ? images.length - 1 : prev - 1
-    );
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const nextImage = () =>
-    setCurrentImageIndex((prev) =>
-      prev === images.length - 1 ? 0 : prev + 1
-    );
+  useEffect(() => {
+    setCurrentImageIndex(0);
+    if (modalScrollRef.current) {
+      modalScrollRef.current.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, [project.id]);
 
-  if (!images || images.length === 0) return null;
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
-  return (
-    <div
-      className="fixed inset-0 z-[9999] bg-black bg-opacity-80 flex items-center justify-center p-3 sm:p-6 cursor-pointer"
-      onClick={onClose}
-    >
-      <div
-        className="relative w-full max-w-md sm:max-w-lg md:max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden cursor-pointer"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <button
-          onClick={onClose}
-          className="absolute top-2 sm:top-3 right-2 sm:right-3 text-gray-600 hover:text-gray-800 text-2xl sm:text-3xl font-bold z-50 cursor-pointer"
-        >
-          ×
-        </button>
-        <div className="relative w-full h-48 sm:h-64 md:h-80 flex items-center justify-center cursor-pointer">
-          <Image
-            src={images[currentImageIndex]}
-            alt={`Project ${project.id} image`}
-            style={{ objectFit: "cover" }}
-            className="cursor-pointer"
-          />
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={prevImage}
-                className="absolute left-1 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-1 sm:p-2 shadow-md hover:bg-gray-100 text-lg sm:text-xl cursor-pointer"
-              >
-                &#8592;
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-1 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-1 sm:p-2 shadow-md hover:bg-gray-100 text-lg sm:text-xl cursor-pointer"
-              >
-                &#8594;
-              </button>
-            </>
-          )}
-          <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-40 text-white text-xs sm:text-sm px-2 py-0.5 rounded-full cursor-pointer">
-            {currentImageIndex + 1} / {images.length}
-          </div>
-        </div>
-        <div className="p-3 sm:p-4 text-center cursor-pointer">
-          <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-1 sm:mb-2 cursor-pointer">
-            {project.title}
-          </h3>
-          <p className="text-gray-500 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base cursor-pointer">
-            {project.period}
-          </p>
-          <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed cursor-pointer">
-            {project.description}
-          </p>
-          {project.tags && (
-            <div className="flex flex-wrap justify-center gap-1 sm:gap-2 mt-2 cursor-pointer">
-              {project.tags.map((tag, index) => (
-                <span
-                  key={index}
-                  className="bg-indigo-100 text-indigo-800 text-xs sm:text-xs px-2 py-1 rounded-full cursor-pointer"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          )}
-          {project.github && (
-            <div className="relative mt-3 w-fit mx-auto group cursor-pointer">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-3 sm:px-4 py-1 sm:py-2 bg-gray-900 text-white rounded-full font-semibold text-xs sm:text-sm hover:bg-gray-800 transition-all duration-300 cursor-pointer"
-              >
-                View on GitHub
-              </a>
-              <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-gray-900 text-white text-xs px-2 py-1 rounded-full whitespace-nowrap transition-all duration-300 cursor-pointer">
-                Need permission — text me :)
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, []);
 
-const Work = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
-  const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
 
-  const handleScroll = (e) => {
-    const scrollTop = e.target.scrollTop;
-    const cardHeight = e.target.firstChild.offsetHeight + 24;
-    const index = Math.round(scrollTop / cardHeight);
-    setCurrentProjectIndex(index);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
+  const heroImage = images[currentImageIndex];
+
+  const showPreviousImage = () => {
+    setCurrentImageIndex((index) => (index === 0 ? images.length - 1 : index - 1));
   };
 
-  return (
-    <section id="work" className="w-full px-4 sm:px-6 md:px-10 lg:px-16 py-12 sm:py-16 lg:py-20 scroll-mt-24 cursor-pointer">
-      <div className="max-w-7xl mx-auto bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl p-4 sm:p-6 md:p-8 lg:p-12">
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <h4 className="text-sm sm:text-base font-semibold text-indigo-500 uppercase tracking-wide mb-1">
-            My Projects
-          </h4>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
-            Explore Some of My Work
-          </h2>
-          <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed cursor-pointer">
-            Software Engineer from Pristina, Kosovo with 1+ years of professional experience and 3+ years of independent projects.
-          </p>
-        </div>
-        <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-start">
-          <div className="lg:w-1/2 flex flex-col items-center text-center space-y-6 sm:space-y-8">
-            <div className="max-w-md sm:max-w-lg cursor-pointer">
-              <h4 className="text-xs sm:text-sm font-semibold uppercase text-gray-500 tracking-wide mb-1">
-                Chosen Projects
-              </h4>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-2 sm:mb-3 cursor-pointer">
-                Latest Projects Built With Passion
-              </h2>
-              <div className="flex justify-center items-center gap-4 sm:gap-6 my-4 cursor-pointer">
-                <div className="text-center">
-                  <p className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-indigo-600">
-                    {projectData.length}+
+  const showNextImage = () => {
+    setCurrentImageIndex((index) => (index === images.length - 1 ? 0 : index + 1));
+  };
+
+  if (!mounted) return null;
+
+  return createPortal(
+    <AnimatePresence>
+      <motion.div
+        className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-md"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 28, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.98 }}
+          transition={{ duration: 0.35 }}
+          onClick={(event) => event.stopPropagation()}
+          className="premium-card relative max-h-[88vh] w-full max-w-5xl overflow-hidden rounded-[2rem]"
+        >
+          <button
+            type="button"
+            onClick={onClose}
+            className="absolute right-4 top-4 z-10 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg ring-1 ring-slate-200 transition-transform duration-300 hover:scale-105"
+            aria-label="Close project modal"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <div
+            ref={modalScrollRef}
+            className="grid max-h-[88vh] overflow-y-auto lg:grid-cols-[1.1fr_0.9fr]"
+          >
+            <div className="relative min-h-[320px] overflow-hidden bg-slate-950">
+              {heroImage ? (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${project.id}-${currentImageIndex}`}
+                    initial={{ opacity: 0.35, scale: 1.04 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0.35, scale: 0.98 }}
+                    transition={{ duration: 0.35, ease: "easeOut" }}
+                    className="absolute inset-0"
+                  >
+                    <Image
+                      src={heroImage}
+                      alt={`${project.title} preview ${currentImageIndex + 1}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      className="object-cover"
+                    />
+                  </motion.div>
+                </AnimatePresence>
+              ) : null}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/10 to-transparent" />
+              {images.length > 1 ? (
+                <>
+                  <button
+                    type="button"
+                    onClick={showPreviousImage}
+                    className="absolute left-4 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg ring-1 ring-slate-200 transition-transform duration-300 hover:scale-105"
+                    aria-label="Previous image"
+                  >
+                    <ArrowLeft className="h-5 w-5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={showNextImage}
+                    className="absolute right-4 top-1/2 z-10 inline-flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-lg ring-1 ring-slate-200 transition-transform duration-300 hover:scale-105"
+                    aria-label="Next image"
+                  >
+                    <ArrowRight className="h-5 w-5" />
+                  </button>
+                </>
+              ) : null}
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-300">Project spotlight</p>
+                <h3 className="mt-2 text-3xl font-bold tracking-[-0.05em]">{project.title}</h3>
+                {images.length > 1 ? (
+                  <p className="mt-2 text-sm text-slate-300">
+                    {currentImageIndex + 1} / {images.length}
                   </p>
-                  <p className="text-gray-500 text-sm sm:text-base md:text-lg mt-1">Projects</p>
+                ) : null}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-6 p-6 sm:p-8">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-600">Overview</p>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{project.description}</p>
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Tech stack</p>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.tags?.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full bg-indigo-50 px-3 py-1.5 text-xs font-semibold text-indigo-700 ring-1 ring-indigo-100"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <div className="flex justify-center mb-4 sm:mb-6 cursor-pointer">
-                <button
-                  onClick={() => {
-                    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                  className="px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all duration-300 text-sm sm:text-base md:text-lg cursor-pointer"
-                >
-                  Let's Connect
-                </button>
-              </div>
-              <p className="text-gray-600 text-xs sm:text-sm md:text-base italic text-center cursor-pointer">
-                Building modern web experiences with precision, performance, and passion.
-              </p>
-            </div>
-          </div>
-          <div className="lg:w-1/2 flex flex-col items-center w-full cursor-pointer">
-            <div
-              className="w-full flex flex-col overflow-y-auto max-h-[65vh] sm:max-h-[70vh] lg:max-h-[75vh] pr-2 sm:pr-4 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200"
-              onScroll={handleScroll}
-            >
-              {projectData.map((project) => (
-                <ProjectCard
-                  key={project.id}
-                  project={project}
-                  onClick={() => setSelectedProject(project)}
-                />
-              ))}
-            </div>
-            <div className="flex justify-center mt-2 sm:mt-3 text-gray-600 text-xs sm:text-sm md:text-base cursor-pointer">
-              Viewing project {currentProjectIndex + 1} of {projectData.length}
-            </div>
-          </div>
-        </div>
-      </div>
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          images={projectImages[selectedProject.id]}
-          onClose={() => setSelectedProject(null)}
-        />
-      )}
-    </section>
-  );
-};
 
-export default Work;
+              {images.length > 1 ? (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Gallery</p>
+                  <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                    {images.map((image, index) => (
+                      <button
+                        key={`${project.id}-${index}`}
+                        type="button"
+                        onClick={() => setCurrentImageIndex(index)}
+                        className={[
+                          "relative aspect-[4/3] overflow-hidden rounded-2xl ring-2 transition-all duration-300",
+                          currentImageIndex === index
+                            ? "ring-indigo-400 shadow-[0_12px_28px_rgba(99,102,241,0.25)]"
+                            : "ring-transparent hover:ring-indigo-200",
+                        ].join(" ")}
+                        aria-label={`Show image ${index + 1}`}
+                      >
+                        <Image
+                          src={image}
+                          alt={`${project.title} preview ${index + 1}`}
+                          fill
+                          sizes="(max-width: 1024px) 50vw, 20vw"
+                          className="object-cover transition-transform duration-500 hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-slate-950/10" />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {project.github ? (
+                <Button href={project.github} target="_blank" rel="noopener noreferrer" className="w-full justify-center">
+                  View Project
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              ) : null}
+            </div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>,
+    document.body
+  );
+}
+
+export default function Work() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  return (
+    <>
+      <SectionShell id="work" innerClassName="overflow-visible">
+        <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div className="lg:sticky lg:top-28">
+            <SectionHeading
+              align="left"
+              eyebrow="Selected Work"
+              title="Projects built to feel sharp, useful, and production-ready."
+              description="A mix of SaaS, AI, commerce, and platform work where product thinking and implementation quality both mattered."
+              className="mb-8"
+            />
+
+            <Card className="space-y-6">
+              <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+                {[
+                  { value: `${projectData.length}+`, label: "projects delivered" },
+                  { value: "SaaS", label: "product-first mindset" },
+                  { value: "AI", label: "automation and tooling" },
+                ].map((item) => (
+                  <div key={item.label} className="rounded-[1.5rem] bg-slate-950 px-5 py-4 text-white">
+                    <p className="text-3xl font-bold tracking-[-0.05em]">{item.value}</p>
+                    <p className="mt-1 text-sm text-slate-300">{item.label}</p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-sm leading-7 text-slate-600">
+                Each project card opens a deeper view with the stack, screenshots, and a direct path to the live repo when it is available.
+              </p>
+            </Card>
+          </div>
+
+          <Stagger className="grid gap-6 md:grid-cols-2">
+            {projectData.map((project) => {
+              const image = projectImages[project.id]?.[0];
+              return (
+                <motion.button
+                  key={project.id}
+                  type="button"
+                  variants={fadeUp}
+                  onClick={() => setSelectedProject(project)}
+                  className="group text-left"
+                >
+                  <Card className="h-full overflow-hidden p-0">
+                    <div className="relative aspect-[1.08/1] overflow-hidden bg-slate-950">
+                      {image ? (
+                        <Image
+                          src={image}
+                          alt={project.title}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                      ) : null}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+                      <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6">
+                        <div className="translate-y-3 transition-transform duration-500 group-hover:translate-y-0">
+                          <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-300">Featured project</p>
+                          <h3 className="mt-2 text-2xl font-bold tracking-[-0.04em] text-white">{project.title}</h3>
+                          <div className="mt-4 flex flex-wrap gap-2">
+                            {project.tags?.slice(0, 3).map((tag) => (
+                              <span key={tag} className="rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur-sm">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                          <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-slate-950 shadow-[0_12px_24px_rgba(15,23,42,0.22)]">
+                            View Project
+                            <ArrowRight className="h-4 w-4" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 p-6">
+                      <p className="line-clamp-3 text-sm leading-7 text-slate-600">{project.description}</p>
+                      <div className="flex items-center justify-between text-sm font-semibold text-slate-700">
+                        <span>Open details</span>
+                        {project.github ? (
+                          <span className="inline-flex items-center gap-2 text-indigo-600">
+                            <Github className="h-4 w-4" />
+                            Repo available
+                          </span>
+                        ) : (
+                          <span className="text-slate-400">Private build</span>
+                        )}
+                      </div>
+                    </div>
+                  </Card>
+                </motion.button>
+              );
+            })}
+          </Stagger>
+        </div>
+      </SectionShell>
+
+      <AnimatePresence>
+        {selectedProject ? <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} /> : null}
+      </AnimatePresence>
+    </>
+  );
+}

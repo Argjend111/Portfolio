@@ -1,85 +1,73 @@
-import React from "react";
-import { educationData, experienceData } from "../../assets/assets";
+"use client";
+
 import { motion } from "framer-motion";
+import { educationData, experienceData } from "../../assets/assets";
+import Card from "./ui/Card";
+import SectionHeading from "./ui/SectionHeading";
+import SectionShell from "./ui/SectionShell";
+import { Stagger, fadeUp } from "./ui/Reveal";
 
-const TimelineCard = ({ item, type }) => {
-  const formatDate = (date) =>
-    date?.toLocaleDateString("en-US", { month: "short", year: "numeric" }) || "Present";
+function formatDate(date) {
+  return date?.toLocaleDateString("en-US", { month: "short", year: "numeric" }) || "Present";
+}
 
+function TimelineColumn({ eyebrow, title, items, type }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, x: type === "education" ? -40 : 40 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
-      className={`w-full p-3 sm:p-5 rounded-xl shadow-sm bg-white border border-gray-100 ${
-        type === "education" ? "text-right" : "text-left"
-      }`}
-    >
-      <h3 className="text-sm sm:text-lg font-semibold text-gray-900">
-        {item.title || item.role}
-      </h3>
-      <p className="text-gray-700 text-[11px] sm:text-sm mt-1">
-        {item.institution || item.company}
-      </p>
-      <p className="text-gray-500 text-[10px] sm:text-sm mt-1 italic">
-        {formatDate(item.startDate)} – {formatDate(item.endDate)}
-      </p>
-      {item.description && (
-        <p className="text-gray-600 text-[11px] sm:text-sm mt-2 leading-snug">
-          {item.description}
-        </p>
-      )}
-      {item.details && (
-        <ul className="mt-2 text-[11px] sm:text-sm list-none space-y-1">
-          {item.details.map((d, j) => (
-            <li key={j} className="relative before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1.5 before:h-1.5 before:rounded-full">
-              {d}
-            </li>
-          ))}
-        </ul>
-      )}
-    </motion.div>
-  );
-};
-
-const About = () => {
-  return (
-    <div id="about" className="w-full px-2 sm:px-4 py-8 sm:py-16 scroll-mt-20">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        viewport={{ once: true }}
-        className="flex flex-col items-center text-center mb-8 sm:mb-12"
-      >
-        <p className="text-gray-600 font-semibold text-base sm:text-xl tracking-wide">
-          Read this incredible journey
-        </p>
-        <p className="text-gray-600 mt-2 max-w-xl leading-relaxed text-xs sm:text-base">
-          Passionate about building smart, user-focused digital experiences that blend logic with creativity.
-        </p>
-      </motion.div>
-
-      <div className="relative w-full sm:w-11/12 max-w-5xl mx-auto">
-        {/* Timeline line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-[1.5px] sm:w-[2px] bg-gray-300 -translate-x-1/2"></div>
-
-        <div className="grid grid-cols-2 gap-3 sm:gap-8">
-          <div className="space-y-6 sm:space-y-14">
-            {educationData.map((edu, i) => (
-              <TimelineCard key={i} item={edu} type="education" />
-            ))}
-          </div>
-          <div className="space-y-6 sm:space-y-14">
-            {experienceData.map((exp, i) => (
-              <TimelineCard key={i} item={exp} type="experience" />
-            ))}
-          </div>
-        </div>
+    <Card className="h-full p-0">
+      <div className="border-b border-slate-100 px-6 py-5">
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-600">{eyebrow}</p>
+        <h3 className="mt-2 text-2xl font-bold tracking-[-0.04em] text-slate-950">{title}</h3>
       </div>
-    </div>
-  );
-};
 
-export default About;
+      <Stagger className="relative space-y-4 p-6">
+        <div className="pointer-events-none absolute bottom-6 left-[1.3rem] top-6 w-px bg-gradient-to-b from-indigo-200 via-slate-200 to-transparent" />
+        {items.map((item, index) => (
+          <motion.div key={`${item.title || item.role}-${index}`} variants={fadeUp} className="relative pl-8">
+            <span className="absolute left-0 top-2.5 h-3 w-3 rounded-full bg-indigo-500 shadow-[0_0_0_6px_rgba(99,102,241,0.12)]" />
+            <div className="rounded-[1.5rem] border border-white/70 bg-white/80 p-5 shadow-[0_14px_36px_rgba(15,23,42,0.06)]">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h4 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">{item.title || item.role}</h4>
+                  <p className="text-sm text-slate-600">{item.institution || item.company}</p>
+                  {item.type ? <p className="text-xs uppercase tracking-[0.22em] text-slate-400">{item.type}</p> : null}
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
+                  {formatDate(item.startDate)} - {formatDate(item.endDate)}
+                </span>
+              </div>
+
+              {item.description ? (
+                <p className="mt-4 text-sm leading-7 text-slate-600">{item.description}</p>
+              ) : null}
+
+              {item.details ? (
+                <div className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+                  {item.details.map((detail) => (
+                    <p key={detail}>{detail}</p>
+                  ))}
+                </div>
+              ) : null}
+            </div>
+          </motion.div>
+        ))}
+      </Stagger>
+    </Card>
+  );
+}
+
+export default function About() {
+  return (
+    <SectionShell id="about">
+      <SectionHeading
+        eyebrow="About"
+        title="A journey shaped by shipping, learning fast, and staying close to real product problems."
+        description="I care about more than writing features. I like making products clearer, faster, and more confident for the people who use them."
+      />
+
+      <div className="grid gap-6 xl:grid-cols-2">
+        <TimelineColumn eyebrow="Education" title="Foundations" items={educationData} type="education" />
+        <TimelineColumn eyebrow="Experience" title="Recent Work" items={experienceData} type="experience" />
+      </div>
+    </SectionShell>
+  );
+}

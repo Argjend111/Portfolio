@@ -1,66 +1,69 @@
 "use client";
 
-import React from "react";
+import { motion } from "framer-motion";
 import { skillData } from "../../assets/assets";
+import Card from "./ui/Card";
+import SectionHeading from "./ui/SectionHeading";
+import SectionShell from "./ui/SectionShell";
+import { Stagger, fadeUp } from "./ui/Reveal";
+
+function groupSkills() {
+  const main = skillData.filter((item) => item.type.toLowerCase().includes("full stack"));
+  const supporting = skillData.filter((item) => !item.type.toLowerCase().includes("full stack"));
+
+  return [
+    { title: "Core Stack", description: "The technologies I reach for most often when shipping products end to end.", items: main },
+    { title: "Supporting Tools", description: "The broader systems, platforms, and tools I regularly work with across delivery.", items: supporting },
+  ];
+}
 
 export default function Skills() {
-  const mainCategory = { title: "Software Engineer - End-to-End Craft", filter: "full stack" };
-  const otherCategoriesFilters = ["backend", "database", "frontend", "other"];
-
-  const filterSkills = (types) => {
-    return skillData.filter((s) => {
-      const t = s.type.toLowerCase();
-      if (Array.isArray(types)) {
-        return types.some((type) => {
-          if (type === "other") {
-            return !["frontend", "backend", "database", "full stack"].some((x) => t.includes(x));
-          }
-          return t.includes(type);
-        });
-      }
-      return t.includes(types);
-    });
-  };
-
-  const renderSection = (title, types) => {
-    const data = filterSkills(types);
-    if (data.length === 0) return null;
-
-    return (
-      <div className="mb-10 sm:mb-20" key={title}>
-        <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-6 sm:mb-8 text-center tracking-tight uppercase">
-          {title}
-        </h3>
-        <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7 gap-4 sm:gap-6 md:gap-8 justify-items-center">
-          {data.map(({ name, experience, description, level, icon: Icon }, i) => (
-            <div
-              key={i}
-              className="w-full max-w-[120px] xs:max-w-[140px] sm:max-w-[160px] md:max-w-[180px] lg:max-w-[200px] bg-white border border-gray-200 rounded-2xl p-3 sm:p-4 md:p-5 text-center shadow-sm hover:shadow-md hover:border-blue-500/40 transition-all duration-300 flex flex-col items-center justify-between cursor-pointer"
-            >
-              <div className="flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mb-3 sm:mb-4 rounded-full bg-gray-100 border border-gray-200">
-                <Icon size={20} className="sm:size-22 md:size-24 text-blue-500" />
-              </div>
-              <h3 className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-900 mb-1">{name}</h3>
-              <p className="text-[9px] sm:text-[10px] md:text-xs text-gray-500 mb-1">{experience}</p>
-              <p className="text-[9px] sm:text-[10px] md:text-xs text-blue-500 font-medium mb-1">
-                Level: {level}
-              </p>
-              <p className="text-[8px] sm:text-[10px] md:text-[11px] text-gray-600 leading-snug">
-                {description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  };
-
   return (
-    <section id="skills" className="w-full py-16 sm:py-20">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 md:px-8">
-        {renderSection(mainCategory.title, mainCategory.filter)}
-        {renderSection("Worked with this too", otherCategoriesFilters)}
+    <SectionShell id="skills">
+      <SectionHeading
+        eyebrow="Skills"
+        title="A stack built for modern product work."
+        description="I focus on practical tools that let me move from product idea to robust implementation without sacrificing performance or usability."
+      />
+
+      <div className="space-y-10">
+        {groupSkills().map((group) => (
+          <div key={group.title} className="space-y-6">
+            <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <h3 className="text-2xl font-bold tracking-[-0.04em] text-slate-950">{group.title}</h3>
+                <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">{group.description}</p>
+              </div>
+            </div>
+
+            <Stagger className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+              {group.items.map(({ name, experience, description, level, icon: Icon }) => (
+                <motion.div key={name} variants={fadeUp}>
+                  <Card className="h-full">
+                    <div className="flex h-full flex-col gap-5">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-indigo-600 ring-1 ring-slate-200">
+                          <Icon className="h-6 w-6" />
+                        </div>
+                        <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-semibold text-indigo-600">
+                          {level}
+                        </span>
+                      </div>
+
+                      <div>
+                        <h4 className="text-lg font-semibold tracking-[-0.03em] text-slate-950">{name}</h4>
+                        <p className="mt-1 text-xs uppercase tracking-[0.22em] text-slate-400">{experience}</p>
+                      </div>
+
+                      <p className="text-sm leading-7 text-slate-600">{description}</p>
+                    </div>
+                  </Card>
+                </motion.div>
+              ))}
+            </Stagger>
+          </div>
+        ))}
       </div>
-    </section>
+    </SectionShell>
   );
 }
