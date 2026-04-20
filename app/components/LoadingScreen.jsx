@@ -76,13 +76,6 @@ export default function LoadingScreen() {
         </motion.div>
 
         <div className="space-y-4 text-center">
-          <motion.p
-            className="text-sm font-semibold uppercase tracking-[0.45em] text-slate-500"
-            animate={{ opacity: [0.65, 1, 0.65] }}
-            transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            Loading Portfolio
-          </motion.p>
 
           <motion.h2
             className="text-2xl font-semibold tracking-tight text-slate-800 sm:text-3xl"
