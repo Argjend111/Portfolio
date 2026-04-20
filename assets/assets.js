@@ -685,6 +685,17 @@ export const educationData = [
 
 export const experienceData = [
   {
+    company: "KuBIT - OnSite",
+    role: "Software Developer",
+    type: "Onsite - Pristina, Kosovo",
+    startDate: new Date(2026, 0, 2),
+    endDate: null,
+    details: [
+      "Built enterprise apps with .NET, React, and SQL Server.",
+      "Delivered solutions for 40+ clients (Balfin, Spar, Shell, Interex).",
+    ],
+},
+  {
   company: "O2 (Germany) - Remote",
   role: "Part-Time Developer",
   type: "Remote / Part-Time",
