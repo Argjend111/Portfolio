@@ -686,7 +686,7 @@ export const experienceData = [
     company: "KuBIT",
     role: "Software Developer",
     type: "Onsite - Pristina, Kosovo",
-    startDate: new Date(2026, 0, 2),
+    startDate: new Date(2026, 1, 0),
     endDate: null,
     details: [
       "Built enterprise apps with .NET, React, and SQL Server.",
