@@ -683,7 +683,7 @@ export const educationData = [
 
 export const experienceData = [
   {
-    company: "KuBIT - OnSite",
+    company: "KuBIT",
     role: "Software Developer",
     type: "Onsite - Pristina, Kosovo",
     startDate: new Date(2026, 0, 2),
@@ -694,9 +694,9 @@ export const experienceData = [
     ],
 },
   {
-  company: "O2 (Germany) - Remote",
+  company: "O2",
   role: "Part-Time Developer",
-  type: "Remote / Part-Time",
+  type: "Remote - Germany",
   startDate: new Date(2025, 5, 1), 
   endDate: new Date(2025, 7, 31), 
   details: [
@@ -704,7 +704,7 @@ export const experienceData = [
   ],
 },
  {
-    company: "Pabau Clinic Software - OnSite",
+    company: "Pabau Clinic Software",
     role: "Software Engineer Intern",
     type: "Onsite - Pristina, Kosovo",
     startDate: new Date(2025, 1, 1),
@@ -714,9 +714,9 @@ export const experienceData = [
     ],
   },
   {
-    company: "Ameba - Hybrid",
+    company: "Ameba",
     role: "Software Developer",
-    type: "Remote - Suharekë, Kosovo",
+    type: "Onsite - Suharekë, Kosovo",
     startDate: new Date(2024, 9, 1),
     endDate: new Date(2025, 1, 28),
     details: [
