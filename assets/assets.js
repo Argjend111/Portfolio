@@ -193,7 +193,7 @@ export const skillData = [
   {
     name: "Next.js",
     type: "Full Stack",
-    experience: "1+ years",
+    experience: "2 years",
     level: "Intermediate",
     description: "Built full-stack apps with REST APIs, GraphQL, Prisma, PostgreSQL, and Firebase — deployed on Vercel.",
     icon: Rocket
@@ -209,7 +209,7 @@ export const skillData = [
   {
     name: "C#",
     type: "Full Stack",
-    experience: "2+ year",
+    experience: "2+ years",
     level: "Intermediate",
     description: "Created Windows desktop apps with .NET and SQLite, like the Pizza Ordering App.",
     icon: FileCode
@@ -241,7 +241,7 @@ export const skillData = [
   {
     name: "PostgreSQL",
     type: "Full Stack",
-    experience: "1+ years",
+    experience: "1+ year",
     level: "Intermediate",
     description: "Implemented in Pabau Clinic and School Management projects alongside Prisma.",
     icon: Database
@@ -345,7 +345,7 @@ export const skillData = [
   {
     name: "SQLite",
     type: "Database",
-    experience: "2+ year",
+    experience: "2+ years",
     level: "Intermediate",
     description: "Used in C# desktop apps for storing local data efficiently.",
     icon: Database
@@ -353,7 +353,7 @@ export const skillData = [
   {
     name: "Firebase",
     type: "Database / Backend",
-    experience: "1+ years",
+    experience: "1+ year",
     level: "Intermediate",
     description: "Used for authentication and real-time storage in AI PDF Chat project.",
     icon: Cloud
@@ -455,13 +455,13 @@ export const servicesData = [
     icon: <Globe size={36} />,
     title: "Full-Stack Development",
     description:
-      "Building scalable applications using .NET, Next.js, React, PHP, and SQL Server — covering frontend, backend, and databases.",
+      "Building scalable applications using .NET, Next.js, React, PHP, and SQL Server.",
   },
   {
     icon: <Smartphone size={36} />,
-    title: "Desktop & System Applications",
+    title: "Desktop & Systems",
     description:
-      "Developing high-performance desktop solutions with C# .NET, focused on reliability and real-world business use.",
+      "Developing high-performance desktop solutions with C# .NET, focused on real-world.",
   },
   {
     icon: <Cpu size={36} />,
@@ -473,7 +473,7 @@ export const servicesData = [
     icon: <Server size={36} />,
     title: "Backend & API Systems",
     description:
-      "Designing secure APIs and managing scalable backend systems using Node.js, PHP, .NET, and modern databases.",
+      "Designing secure APIs and scalable backends with Node.js, PHP, .NET, and databases.",
   }
 ];
 
