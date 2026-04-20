@@ -181,7 +181,7 @@ export const assets = {
 export const personalInfo = {
   name: "Argjend Bytyçi",
   role: "Software Engineer",
-  location: "Suharekë, Kosovo",
+  location: "Pristina, Kosovo",
   email: "argjendd220@gmail.com",
   phone: "+38349753683",
   linkedin: "https://www.linkedin.com/in/argjend-byty%C3%A7i-485328270",

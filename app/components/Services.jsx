@@ -16,7 +16,7 @@ export default function Services() {
             My Services
           </h2>
           <p className="text-gray-600 font-Ovo mt-2 text-xs sm:text-sm md:text-base leading-relaxed">
-            Software Engineer from Suhareka, Kosovo with over 1+ years professional experience and 3+ years of project development.
+            Software Engineer from Pristina, Kosovo with over 1+ years professional experience and 3+ years of project development.
           </p>
         </div>
 

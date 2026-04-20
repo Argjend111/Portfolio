@@ -8,10 +8,10 @@ import { assets } from "../../assets/assets";
 function Header() {
   const [showText, setShowText] = useState(false);
 
-  const title = "Software Engineer based in Suhareka";
+  const title = "Software Engineer based in Pristina.";
   const titleWords = title.split(" ");
   const paragraph =
-    "I am a Software Engineer from Suhareka, Kosovo with 1+ years of experience in companies and more than 3+ years working on personal and professional projects.";
+    "I am a Software Engineer from Pristina, Kosovo with 1+ years of experience in companies and more than 3+ years working on personal and professional projects.";
   const paragraphWords = paragraph.split(" ");
 
   return (

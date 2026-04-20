@@ -183,7 +183,7 @@ const Work = () => {
             Explore Some of My Work
           </h2>
           <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed cursor-pointer">
-            Software Engineer from Suhareka, Kosovo with 1+ years of professional experience and 3+ years of independent projects.
+            Software Engineer from Pristina, Kosovo with 1+ years of professional experience and 3+ years of independent projects.
           </p>
         </div>
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-start">
