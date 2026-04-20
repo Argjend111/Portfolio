@@ -118,17 +118,18 @@ export default function Navbar() {
           </div>
 
           <div className="flex items-center gap-3">
-            <Button
-              href="#contact"
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToId("#contact");
-              }}
-              className="hidden sm:inline-flex"
-            >
-              Start a Project
-              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </Button>
+           <div className="hidden lg:block">
+  <Button
+    href="#contact"
+    onClick={(event) => {
+      event.preventDefault();
+      scrollToId("#contact");
+    }}
+  >
+    Start a Project
+    <ArrowUpRight className="h-4 w-4" />
+  </Button>
+</div>
 
             <button
               type="button"
@@ -155,11 +156,11 @@ export default function Navbar() {
               onClick={() => setMenuOpen(false)}
             />
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -20, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-x-4 top-20 z-50 rounded-[2rem] border border-white/70 bg-white/90 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.15)] backdrop-blur-2xl sm:inset-x-6"
+              className="fixed inset-x-4 top-24 z-50 rounded-[2rem] border border-white/70 bg-white/90 p-5 shadow-[0_30px_80px_rgba(15,23,42,0.15)] backdrop-blur-2xl sm:inset-x-6 sm:top-28"
             >
               <div className="flex flex-col gap-2">
                 {navLinks.map((item) => (
@@ -185,7 +186,7 @@ export default function Navbar() {
                   event.preventDefault();
                   scrollToId("#contact", setMenuOpen);
                 }}
-                className="mt-4 w-full justify-center"
+                className="mt-5 w-full justify-center"
               >
                 Start a Project
                 <ArrowUpRight className="h-4 w-4" />
