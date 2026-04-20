@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { projectData, projectImages } from "../../assets/assets";
-import { useRouter } from "next/navigation";
 
 const ProjectCard = ({ project, onClick }) => {
   const firstImage = projectImages[project.id]?.[0] || null;
@@ -62,18 +61,19 @@ const ProjectCard = ({ project, onClick }) => {
   );
 };
 
-
 const ProjectModal = ({ project, images, onClose }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const router = useRouter();
+
   const prevImage = () =>
     setCurrentImageIndex((prev) =>
       prev === 0 ? images.length - 1 : prev - 1
     );
+
   const nextImage = () =>
     setCurrentImageIndex((prev) =>
       prev === images.length - 1 ? 0 : prev + 1
     );
+
   if (!images || images.length === 0) return null;
 
   return (
@@ -122,7 +122,9 @@ const ProjectModal = ({ project, images, onClose }) => {
           <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-1 sm:mb-2 cursor-pointer">
             {project.title}
           </h3>
-          <p className="text-gray-500 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base cursor-pointer">{project.period}</p>
+          <p className="text-gray-500 mb-2 sm:mb-3 text-xs sm:text-sm md:text-base cursor-pointer">
+            {project.period}
+          </p>
           <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed cursor-pointer">
             {project.description}
           </p>
@@ -208,7 +210,7 @@ const Work = () => {
                   }}
                   className="px-4 sm:px-6 py-2 sm:py-3 rounded-full bg-indigo-600 text-white font-semibold hover:bg-indigo-700 transition-all duration-300 text-sm sm:text-base md:text-lg cursor-pointer"
                 >
-                  Let’s Connect
+                  Let's Connect
                 </button>
               </div>
               <p className="text-gray-600 text-xs sm:text-sm md:text-base italic text-center cursor-pointer">

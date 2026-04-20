@@ -11,14 +11,15 @@ import Skills from "./components/Skills";
 import LanguageInterest from "./components/LanguageInterest";
 import LoadingScreen from "./components/LoadingScreen";
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
-  if (typeof window !== "undefined" && isLoading) {
-    setTimeout(() => setIsLoading(false), 1500);
-  }
+  useEffect(() => {
+    const timer = window.setTimeout(() => setIsLoading(false), 1500);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <>

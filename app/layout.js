@@ -2,7 +2,7 @@ import { Outfit, Ovo } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
-  weight:["400","500","600","700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
 
@@ -10,6 +10,9 @@ const ovo = Ovo({
   weight: ["400"],
   subsets: ["latin"],
 });
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
+  || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000");
 
 export const metadata = {
   title: "Argjend Bytyci | Software Engineer",
@@ -36,7 +39,7 @@ export const metadata = {
       url: "https://www.linkedin.com/in/argjend-byty%C3%A7i-485328270",
     },
   ],
-  metadataBase: new URL("https://your-portfolio-domain.vercel.app"),
+  metadataBase: new URL(siteUrl),
 };
 
 export default function RootLayout({ children }) {

@@ -80,7 +80,7 @@ function Contact() {
             <User className="text-gray-500 w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3" />
             <input
               type="text"
-              name="title"
+              name="name"
               className="w-full p-2 sm:p-3 md:p-4 outline-none bg-transparent text-xs sm:text-sm md:text-base ml-2"
               placeholder="Enter your name"
               required
@@ -102,7 +102,7 @@ function Contact() {
         <div className="relative flex border border-gray-300 rounded-md bg-white focus-within:border-gray-500 transition-all">
           <MessageSquare className="text-gray-500 w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3 mt-3 sm:mt-4" />
           <textarea
-            name="name"
+            name="message"
             rows="5"
             className="w-full p-2 sm:p-3 md:p-4 outline-none bg-transparent text-xs sm:text-sm md:text-base ml-2 resize-none"
             placeholder="Enter your message"
@@ -132,8 +132,8 @@ function Contact() {
               }`}
             >
               {status === "success"
-                ? "Message sent successfully ✅"
-                : "Something went wrong ❌"}
+                ? "Message sent successfully"
+                : "Something went wrong"}
             </motion.p>
           )}
         </AnimatePresence>
