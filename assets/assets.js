@@ -207,14 +207,6 @@ export const skillData = [
     icon: Braces
   },
   {
-    name: "Tailwind CSS",
-    type: "Full Stack",
-    experience: "1+ year",
-    level: "Intermediate",
-    description: "Used in modern UI projects such as Portfolio, Rent a Car, and School Management System.",
-    icon: Palette
-  },
-  {
     name: "C#",
     type: "Full Stack",
     experience: "2+ year",
@@ -254,6 +246,14 @@ export const skillData = [
     description: "Implemented in Pabau Clinic and School Management projects alongside Prisma.",
     icon: Database
   },
+ {
+  name: "SQL Server",
+  type: "Database",
+  experience: "2+ years",
+  level: "Advanced",
+  description: "Designed and managed relational databases, optimized queries, and built scalable backend data solutions using Microsoft SQL Server.",
+  icon: Database
+},
   {
   name: "N8N",
   type: "Full Stack",
