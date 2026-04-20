@@ -89,16 +89,8 @@ export default function LoadingScreen() {
             animate={{ opacity: [0.8, 1, 0.8] }}
             transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
           >
-            Preparing the experience
+            Preparing the experience…
           </motion.h2>
-
-          <motion.p
-            className="mx-auto max-w-md text-base text-slate-600"
-            animate={{ opacity: [0.55, 1, 0.55] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          >
-           Loading perfectly…
-          </motion.p>
 
           <motion.div className="mt-5 flex items-center justify-center gap-3">
             {[0, 1, 2].map((i) => (

@@ -17,11 +17,6 @@ const socials = [
     icon: Linkedin,
   },
   {
-    name: "Email",
-    href: "mailto:argjendd220@gmail.com",
-    icon: Mail,
-  },
-  {
     name: "Resume",
     href: assets.cv,
     icon: FileText,

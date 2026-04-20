@@ -132,7 +132,7 @@ export default function Header() {
                       <div>
                     <p className="flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-slate-400">
   <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
- Driven by Detail...
+ Driven by Details...
 </p>
                       </div>
                     </div>
